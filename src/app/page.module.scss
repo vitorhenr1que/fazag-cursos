@@ -1,0 +1,178 @@
+.main {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.spanBlue {
+  color: var(--blue);
+}
+
+
+.mainTextContainer{
+  display: flex;
+  flex: 1;
+
+  justify-content: space-between;
+
+  .textDiv{
+    display: flex;
+    flex-direction: column;
+
+    line-height: 65px;
+    flex: 1;
+    max-width: 49%;
+    .divh1 {
+      display: flex;
+      flex-direction: column;
+      span {
+        font-size: 4rem;
+      }
+    }
+    .spanValue{
+      flex: 1;
+      font-size: 1.5rem;
+    }
+  }
+
+  .imgDiv {
+    flex: 1;
+    position: relative;
+    background-color: var(--blue);
+    border-radius: 1rem;
+    max-width: 49%;
+
+    .fazagImg{
+      border-radius: 1rem;
+      border: 12px red;
+      padding: 1rem;
+    }
+  }
+
+  .divButtons {
+    display: flex;
+    flex: 1;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 1rem;
+
+
+    button {
+      flex: 1.3;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: var(--blue);
+      padding: 1.3rem 2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      &:hover {
+        color: var(--white);
+        transition: .3s;
+      }
+    }
+
+    .link {
+      flex: 1;
+      text-decoration: none;
+      color: var(--white);
+    }
+  }
+}
+
+
+@media(max-width: 1480px){
+
+  .textDiv{
+    .divh1 {
+      line-height: 55px;
+      span {
+        font-size: 3.5rem !important;
+      }
+    }
+  }
+
+}
+
+@media(max-width: 1294px){
+
+  .textDiv{
+    .divh1 {
+      line-height: 55px;
+      span {
+        font-size: 3rem !important;
+      }
+    }
+  }
+
+}
+
+@media(max-width: 1110px){
+
+  .textDiv{
+    .divh1 {
+      line-height: 55px;
+      span {
+        font-size: 2.5rem !important;
+      }
+    }
+  }}
+
+  @media(max-width: 1087px){
+
+    .mainTextContainer{
+      .imgDiv{
+        margin-top: 1rem;
+        width: 100%;
+        .fazagImg{
+          padding: .1rem;
+        }
+      }
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .textDiv {
+        max-width: 80%;
+        align-items: center;
+        .divh1{
+          span {
+            text-align: center;
+          }
+        }
+      }
+      .divButtons {
+        justify-content: center;
+        button {
+          flex: 1;
+        }
+      }
+    }
+    
+    }
+
+    @media(max-width: 735px){
+      .textDiv{
+        max-width: 100% !important;
+      }
+    }
+
+    @media(max-width: 535px){
+      .divButtons{
+        display: flex;
+        flex-direction: column;
+        gap: 0rem !important;
+        }
+        .spanValue{
+          flex: 1;
+          font-size: 1rem !important;
+        }
+    }
+

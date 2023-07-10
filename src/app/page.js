@@ -1,94 +1,37 @@
 import Image from 'next/image'
-import styles from './page.module.css'
+import styles from './page.module.scss'
+import { oswald } from './layout'
+import fotoFazag from '../../public/fazag.jpg'
+import Link from 'next/link'
+
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <div className={styles.mainContainer}>
+        <div className={styles.mainTextContainer}>
+
+          <div className={styles.textDiv}>
+            <h1 className={`${oswald.className} ${styles.divh1}`}><span className={styles.spanBlue}>MATRICULE-SE AGORA</span><span>E GANHE ATÉ 50% DE DESCONTO ATÉ O FINAL DO CURSO</span></h1>
+            <span className={styles.spanValue}>Cursos a partir de R$ 180,00/mês</span>
+
+          <div className={styles.divButtons}>
+            
+            <Link href="#nossos-cursos">
+              <button>Conhecer as graduações</button>
+            </Link>
+            
+            <Link target="blank" href={'https://docs.google.com/forms/d/e/1FAIpQLScJfSdlpyltqrLxa21H8bJE62xNkwI-BwqrPOoES1wu9pCSyA/viewform?pli=1'} className={styles.link}>Matricular agora</Link>
+          </div>
+
+          </div>
+          
+
+          <div className={styles.imgDiv}>
+            <Image className={styles.fazagImg} src={fotoFazag} objectFit='cover' fill/>
+          </div>
+          
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
       </div>
     </main>
   )

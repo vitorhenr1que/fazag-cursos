@@ -1,0 +1,27 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --light-gray: #757575;
+  --dark-gray: #2c2c2c;
+  --blue: #479eff;
+  --white: #fff;
+  scroll-behavior: smooth;
+
+  a {
+    text-decoration: none;
+  }
+  .container {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 3rem;
+  }
+}
+
+body {
+  background: var(--dark-gray);
+  color: var(--white)
+
+}

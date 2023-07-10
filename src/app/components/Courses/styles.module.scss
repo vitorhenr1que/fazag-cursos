@@ -1,0 +1,69 @@
+.trueContaiener{
+    padding-top: .5rem;
+    background-color: var(--white);
+    color: black;
+.coursesContainer {
+    display: flex;
+    flex-direction: column;
+    
+    h2 {
+        font-size: 2.5rem;
+    }
+    .containerPadding{
+        padding: 1rem;
+    }
+}
+}
+.courseContainer {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    .imgCourseDiv{
+        flex: 1;
+        position: relative;
+        height: 7rem;
+
+        .imgCourse {
+            border-radius: 8px;
+            
+        }
+    }
+    .textCourseContainer {
+        display: flex;
+        font-weight: 600;
+        flex: 3;
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: .4rem;
+        }
+        flex-direction: column;
+        s {
+            color: var(--light-gray);
+        }
+    }
+    .buttonMore {
+        button {
+            border: none;
+            background: var(--blue);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    }
+}
+
+@media(max-width: 675px){
+    .courseContainer{
+        display: block;
+        .textCourseContainer{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .buttonMore{
+            margin-top: 1rem;
+        }
+      }
+}
