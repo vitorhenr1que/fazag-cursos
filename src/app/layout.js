@@ -4,7 +4,7 @@ import { Header } from './components/Header/Header'
 import './globals.scss'
 import { Inter, Oswald } from 'next/font/google'
 
-export const inter = Inter({ weight: ['400','500','600'], subsets: ['latin'] })
+export const inter = Inter({ weight: ['400','500','600','700','800'], subsets: ['latin'] })
 
 export const oswald = Oswald({
   weight: ['600','700',],

@@ -1,0 +1,33 @@
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    width: 50vw;
+    background: var(--light-gray);
+    border-radius: 16px;
+    padding: 3rem;
+    p {
+        font-size: 1.6rem;
+    }
+    ul > li {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+    }
+    .linkMatriz{
+        text-decoration: none;
+        text-align: center;
+        background: var(--blue);
+        padding: 1rem;
+        border-radius: 50px;
+        width: 45%;
+        color: var(--white);
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: .2s;
+        &:hover{
+            color: #000;
+        }
+    }
+
+}

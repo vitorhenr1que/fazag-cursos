@@ -10,7 +10,7 @@ export function Course({image, course, totalValue, saleValue, link, hr}){
         <>
     <div className={styles.courseContainer}>
         <div className={styles.imgCourseDiv}>
-            <Image className={styles.imgCourse} src={image} fill objectFit="cover"/>
+            <Image className={styles.imgCourse} src={image} fill objectFit="cover" alt={""}/>
         </div>
 
         <div className={styles.textCourseContainer}>

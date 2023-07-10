@@ -1,0 +1,102 @@
+.imgContainer{
+    position: relative;
+    width: 100%;
+    height: 85vh;
+}
+
+.imgCourses{
+    filter: brightness(50%);
+    z-index: -1;
+}
+
+.courseTextContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 60%;
+        h1 {
+            display: flex;
+            flex-direction: column;
+            line-height: 100%;
+            font-size: 5rem;
+            color: var(--blue);
+        }
+        p {
+            font-size: 1.2rem;
+        }
+    }
+    
+    .boxContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 60vh;
+        background-color: var(--white);
+        border-radius: 12px;
+        padding: 1.5rem;
+        color: #000;
+        .grau {
+            font-weight: 400;
+        }
+
+        .courseName {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .ulDiv {
+            margin-left: 1rem;
+            font-size: .8rem;
+            ul > li {
+                margin-top: 4px;
+            }
+        }
+        .saleDiv {
+            border: 1px solid black;
+            border-radius: 4px;
+            padding: 4px;
+            span {
+                font-size: .7rem;
+                font-weight: bold;
+            }
+        }
+        .courseValues{
+            display: flex;
+            flex-direction: column;
+            gap: .1rem;
+            s {
+                font-size: .9rem;
+                color: var(--light-gray);
+            }
+            p {
+                font-size: 1.3rem;
+                font-weight: 700;
+            }
+        }
+        .inscrevaSeDiv{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .inscrevaSeButton{
+                border: none;
+                background: var(--blue);
+                width: 80%;
+                padding: 1rem;
+                border-radius: 50px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: .2s;
+                &:hover {
+                    color: var(--white);
+                }
+            }
+        }
+    }
+}
