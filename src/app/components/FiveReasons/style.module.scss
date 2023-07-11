@@ -1,0 +1,42 @@
+.trueContainer{
+    background-color: var(--white);
+    .containerReasons{
+        h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        padding: 1rem;
+    }
+}
+
+
+.divIcons{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    .iconsCircle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .iconsParagraph{
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+}
+
+@media(max-width: 430px){
+    .containerReasons{
+        h2{
+            font-size: 2rem !important;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+    }
+}

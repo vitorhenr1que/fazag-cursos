@@ -50,7 +50,7 @@ export default function Cursos({params}){
             </div>
         </div>
         <InfoCourse/>
-        <h1>Cursos: {params.curso}</h1>
+        {/*<h1>Cursos: {params.curso}</h1>*/}
         
         </div>
     )

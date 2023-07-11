@@ -8,7 +8,6 @@
   --blue: #479eff;
   --white: #fff;
   scroll-behavior: smooth;
-
   a {
     text-decoration: none;
   }
@@ -21,7 +20,6 @@
 }
 
 body {
-  background: var(--dark-gray);
+  background: var(--dark-gray) !important;
   color: var(--white)
-
 }
