@@ -1,23 +1,38 @@
 import Link from 'next/link'
 import styles from './style.module.scss'
+import Image from 'next/image'
+import capelo from '../../../../public/capelo.png'
+import mao from '../../../../public/mao.png'
 
 export function InfoCourse(){
+    const disciplines = 
+    [
+    "Linguagens e Métodos Universitários",
+    "Psicologia da Educação",
+    "Psicologia em Terapia",
+    "Psicologia Mental",
+    "Psicologia Neurofuncional",
+    "Trabalho de Conclusão de Curso"
+    ]
     return(
-        <div className={`container`}>
+        <div className={`container ${styles.cont}`}>
             <div className={styles.infoContainer}>
                 <p>
                 <strong>Confira algumas das disciplinas que você vai estudar e baixe a matriz curricular do curso:</strong>
                 </p>
                 <ul>
-                    <li>Linguagens e Métodos Universitários</li>
-                    <li>Psicologia da Educação</li>
-                    <li>Psicologia em Terapia</li>
-                    <li>Psicologia Mental</li>
-                    <li>Psicologia Neurofuncional</li>
-                    <li>Trabalho de Conclusão de Curso</li>
+                    {disciplines.map((index) => {
+                        return (
+                            <li>
+                                <div className={styles.liCircle}></div>
+                                <span>{index}</span>
+                            </li>
+                        )
+                    })}
                 </ul>
                 <Link href={"/"} className={styles.linkMatriz}>Baixe a matriz do curso</Link>
             </div>
+
         </div>
         
     )
