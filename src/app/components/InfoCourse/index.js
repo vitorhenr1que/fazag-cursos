@@ -1,9 +1,7 @@
 import Link from 'next/link'
 import styles from './style.module.scss'
 import Image from 'next/image'
-import capelo from '../../../../public/capelo.png'
-import mao from '../../../../public/mao.png'
-
+import tree from '../../../../public/tree.png'
 export function InfoCourse(){
     const disciplines = 
     [
@@ -32,7 +30,9 @@ export function InfoCourse(){
                 </ul>
                 <Link href={"/"} className={styles.linkMatriz}>Baixe a matriz do curso</Link>
             </div>
-
+            <div className={styles.divImgTree}>
+                <Image className={styles.imgTree} src={tree} alt={""} height={400} />
+            </div>
         </div>
         
     )

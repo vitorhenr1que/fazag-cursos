@@ -2,6 +2,7 @@
     position: relative;
     width: 100%;
     height: 85vh;
+    padding: 1rem 0rem 1rem 0rem;
 }
 
 .imgCourses{
@@ -30,6 +31,7 @@
         }
         p {
             font-size: 1.2rem;
+            text-align: justify;
         }
     }
     
@@ -38,7 +40,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        height: 60vh;
+        gap: 2rem;
         background-color: var(--white);
         border-radius: 12px;
         padding: 1.5rem;
@@ -104,9 +106,55 @@
     }
 }
 
-@media(min-height: 180vh){
+@media(max-width: 998px){
+    .textContainer{
+        font-size: 1.5rem;
+        h1 {
+            span {
+                font-size: 4rem;
+                line-height: 80px;
+                
+            }
+        }
+        p {
+            font-size: 1rem !important;
+            
+        }
+    }
+}
+
+@media(max-width: 913px){
+    .imgContainer{
+        height: auto;
+    }
     .boxContainer{
-        position: absolute;
-        top: auto;
+        width: 100% !important;
+    }
+    .courseTextContainer{
+        flex-direction: column;
+        gap: 2rem;
+        .textContainer{
+            max-width: 100%;
+        }
+    }
+    
+}
+
+@media(max-width: 479px){
+    .textContainer{
+        h1 {
+            span {
+                font-size: 3rem;
+                line-height: 55px;
+                text-align: center;
+            }
+        }
+        p {
+            font-size: 1rem !important;
+            
+        }
+    }
+    .boxContainer{
+        gap: 1rem !important;
     }
 }
