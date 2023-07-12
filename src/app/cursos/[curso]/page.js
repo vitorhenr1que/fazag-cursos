@@ -3,8 +3,16 @@ import psicologia from '../../../../public/courses/psicologia.jpg'
 import styles from './style.module.scss'
 import { oswald } from '@/app/layout'
 import { InfoCourse } from '@/app/components/InfoCourse'
+import axios from 'axios'
+import { getClient } from '@/app/services/prismic'
 
-export default function Cursos({params}){
+export default async function Cursos({params}){
+
+    
+        const client = getClient()
+        const response = await client.getByUID('courses', params.curso, {})
+    
+    
 
     return(
         <div className={styles.containerCourse}>
@@ -14,7 +22,7 @@ export default function Cursos({params}){
             
             <div className={styles.courseTextContainer}>
                 <div className={styles.textContainer}>
-                    <h1 className={oswald.className}><span>FACULDADE DE</span><span>PSICOLOGIA</span></h1>
+                    <h1 className={oswald.className}><span>FACULDADE DE</span><span>{response.data.title.toUpperCase()}</span></h1>
                     <p>O curso de graduação em Psicologia é uma formação acadêmica que oferece aos estudantes a oportunidade de compreender a complexidade da mente humana, do comportamento e das relações interpessoais. Ao longo do curso, os alunos mergulham em um estudo aprofundado das teorias, métodos e práticas psicológicas.</p>
                 </div>
                 <div className={styles.boxContainer}>
@@ -50,7 +58,7 @@ export default function Cursos({params}){
             </div>
         </div>
         <InfoCourse/>
-        {/*<h1>Cursos: {params.curso}</h1>*/}
+        {console.log(response.data)}
         
         </div>
     )

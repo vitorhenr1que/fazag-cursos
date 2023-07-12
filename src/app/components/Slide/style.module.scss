@@ -1,4 +1,25 @@
-.slideContainer{
-    height: 400px;
-    padding: 2rem;
+
+
+.carouselDiv{
+    position: relative;
+    height: 100vh;
+    .imgCarouselDiv{
+        height: 100%;
+    }
+}
+
+.titleCarousel{
+    
+    color: var(--white);
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 1rem;
+}
+
+@media(max-width: 500px){
+    .carouselDiv{
+        height: 70vh;
+    }
 }
