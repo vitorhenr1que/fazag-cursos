@@ -12,12 +12,12 @@ export default function Home() {
         <div className={styles.mainTextContainer}>
 
           <div className={styles.textDiv}>
-            <h1 className={`${oswald.className} ${styles.divh1}`}><span className={styles.spanBlue}>MATRICULE-SE AGORA</span><span>E GANHE ATÉ 50% DE DESCONTO ATÉ O FINAL DO CURSO</span></h1>
-            <span className={styles.spanValue}>Cursos a partir de R$ 180,00/mês</span>
+            <h1 className={`${oswald.className} ${styles.divh1}`}><span className={styles.spanBlue}>MATRICULE-SE AGORA</span><span>E GANHE ATÉ 50% DE DESCONTO DURANTE TODO O CURSO</span></h1>
+            <span className={styles.spanValue}>Cursos a partir de R$ 180,60/mês</span>
 
           <div className={styles.divButtons}>
             
-            <Link href="#nossos-cursos">
+            <Link href="#nossos-cursos" scroll={true} data-bs-spy="scroll" data-bs-target="#nossos-cursos">
               <button>Conhecer as graduações</button>
             </Link>
             
@@ -28,7 +28,7 @@ export default function Home() {
           
 
           <div className={styles.imgDiv}>
-            <Image className={styles.fazagImg} src={fotoFazag} objectFit='cover' fill/>
+            <Image className={styles.fazagImg} src={fotoFazag} objectFit='cover' fill alt={"Foto do Prédio da FAZAG"}/>
           </div>
           
         </div>

@@ -5,38 +5,41 @@ import { oswald } from '@/app/layout'
 import { InfoCourse } from '@/app/components/InfoCourse'
 import axios from 'axios'
 import { getClient } from '@/app/services/prismic'
+import { PrismicNextImage } from '@prismicio/next'
+
 
 export default async function Cursos({params}){
 
     
         const client = getClient()
         const response = await client.getByUID('courses', params.curso, {})
-    
-    
+        const course = response.data
+        const img = course.image.url.split('?')
+
 
     return(
         <div className={styles.containerCourse}>
 
         <div className={styles.imgContainer}>
-            <Image className={styles.imgCourses} src={psicologia} fill objectFit='cover' alt={""}/>
-            
+            {/*<Image className={styles.imgCourses} src={`${course.image.url}`} fill objectFit='cover' alt={`${params.curso}`}/>*/}
+            <PrismicNextImage field={course.image} className={styles.imgCourses}/>
             <div className={styles.courseTextContainer}>
                 <div className={styles.textContainer}>
-                    <h1 className={oswald.className}><span>FACULDADE DE</span><span>{response.data.title.toUpperCase()}</span></h1>
-                    <p>O curso de graduação em Psicologia é uma formação acadêmica que oferece aos estudantes a oportunidade de compreender a complexidade da mente humana, do comportamento e das relações interpessoais. Ao longo do curso, os alunos mergulham em um estudo aprofundado das teorias, métodos e práticas psicológicas.</p>
+                    <h1 className={oswald.className}><span>FACULDADE DE</span><span>{course.title.toUpperCase()}</span></h1>
+                    <p>{course.description[0].text}</p>
                 </div>
                 <div className={styles.boxContainer}>
 
                     <div className={styles.textBoxDiv}>
-                        <span className={styles.grau}>Bacharelado em</span>
-                        <h2 className={styles.courseName}>Psicologia</h2>
+                        <span className={styles.grau}>{course.grau} em</span>
+                        <h2 className={styles.courseName}>{course.title}</h2>
                     </div>
 
                     <div className={styles.ulDiv}>
                         <ul>
-                            <li><strong>Conclusão prevista em:</strong> 5 anos</li>
-                            <li><strong>Modalidade do curso:</strong> Presencial</li>
-                            <li><strong>Turno:</strong> Vespertino ou Noturno</li>
+                            <li><strong>Conclusão prevista em:</strong> {course.duration}</li>
+                            <li><strong>Modalidade do curso:</strong> {course.modalidade}</li>
+                            <li><strong>Turno:</strong> {course.turn}</li>
                         </ul>
                     </div>
 
@@ -45,8 +48,8 @@ export default async function Cursos({params}){
                     </div>
 
                     <div className={styles.courseValues}>
-                        <s>R$ 1050,00/mês</s>
-                        <p>R$ 525,00<span>/mês</span></p>
+                        <s>{course.totalvalue}</s>
+                        <p>{course.salevalue}<span>/mês</span></p>
                     </div>
 
                     <div className={styles.inscrevaSeDiv}>
@@ -57,7 +60,13 @@ export default async function Cursos({params}){
     </div>
             </div>
         </div>
-        <InfoCourse/>
+        <InfoCourse 
+            discipline1={course.discipline1}
+            discipline2={course.discipline2}
+            discipline3={course.discipline3} 
+            discipline4={course.discipline4} 
+            discipline5={course.discipline5} 
+            discipline6={course.discipline6} />
         {console.log(response.data)}
         
         </div>

@@ -17,22 +17,22 @@ export function Slide(){
     <div className={`carousel-item active ${styles.imgCarouselDiv}`}>
       <Image src={fazag} className="d-block w-100" objectFit='cover'  fill quality={100}  alt="..."/>
     </div>
-    <div class={`carousel-item ${styles.imgCarouselDiv}`}>
+    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
       <Image src={aula01} className="d-block w-100" objectFit='cover' fill quality={100}  alt="..."/>
     </div>
-    <div class={`carousel-item ${styles.imgCarouselDiv}`}>
+    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
       <Image src={aula} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
     </div>
-    <div class={`carousel-item ${styles.imgCarouselDiv}`}>
+    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
       <Image src={labcolacao} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
     </div>
-    <div class={`carousel-item ${styles.imgCarouselDiv}`}>
+    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
       <Image src={colacao} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
     </div>
-    <div class={`carousel-item ${styles.imgCarouselDiv}`}>
+    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
       <Image src={turmafarmacia} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
     </div>
-    <div class={`carousel-item ${styles.imgCarouselDiv}`}>
+    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
       <Image src={biblioteca} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
     </div>
   </div>

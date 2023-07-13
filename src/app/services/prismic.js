@@ -1,8 +1,26 @@
-import * as prismic from '@prismicio/client'
+{/*import * as prismic from '@prismicio/client'
 
   export const getClient = () => {
     const client = prismic.createClient('fazag', {
         accessToken: process.env.PRISMIC_ACCESS_TOKEN
     })
     return client
+}*/}
+
+import * as prismic from '@prismicio/client'
+import * as prismicNext from '@prismicio/next'
+
+export const getClient = (config = {}) => {
+  const client = prismic.createClient('fazag', {
+
+   fetchOptions:
+     process.env.PRISMIC_ACCESS_TOKEN === 'production'
+       ? { next: { tags: ['prismic'] }, cache: 'force-cache' }
+       : { next: { revalidate: 5 } },
+      ...config,
+  });
+
+  prismicNext.enableAutoPreviews({ client })
+
+  return client
 }

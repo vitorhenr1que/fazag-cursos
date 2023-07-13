@@ -22,7 +22,7 @@ export function FiveReasons(){
 
                 <div className={styles.divIcons}>
                     <div className={styles.iconsCircle}>
-                        <Image src={mec} alt={""} width={80}/>
+                        <Image src={mec} alt={"Ícone Reconhecido pelo MEC"} width={80}/>
                     </div>
                     <div className={styles.iconsParagraph}>
                         <p>Cursos autorizados e reconhecidos pelo MEC</p>
