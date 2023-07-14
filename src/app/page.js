@@ -17,7 +17,7 @@ export default function Home() {
 
           <div className={styles.divButtons}>
             
-            <Link href="#nossos-cursos" scroll={true} data-bs-spy="scroll" data-bs-target="#nossos-cursos">
+            <Link href="#nossos-cursos" data-bs-spy="scroll" data-bs-target="#nossos-cursos">
               <button>Conhecer as graduações</button>
             </Link>
             
