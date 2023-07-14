@@ -22,7 +22,7 @@ export default async function Cursos({params}){
 
         <div className={styles.imgContainer}>
             {/*<Image className={styles.imgCourses} src={`${course.image.url}`} fill objectFit='cover' alt={`${params.curso}`}/>*/}
-            <PrismicNextImage field={course.image} className={styles.imgCourses} alt="Imagem dos Cursos"/>
+            <PrismicNextImage field={course.image} className={styles.imgCourses} alt=""/>
             <div className={styles.courseTextContainer}>
                 <div className={styles.textContainer}>
                     <h1 className={oswald.className}><span>FACULDADE DE</span><span>{course.title.toUpperCase()}</span></h1>

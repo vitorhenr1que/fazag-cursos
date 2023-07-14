@@ -23,9 +23,9 @@ export function InfoCourse({course, discipline1, discipline2, discipline3, disci
                 <strong>Confira algumas das disciplinas que você vai estudar e baixe a matriz curricular do curso: </strong>
                 </p>
                 <ul>
-                    {disciplines.map((index) => {
+                    {disciplines.map((index, position) => {
                         return (
-                            <li>
+                            <li key={position}>
                                 <div className={styles.liCircle}></div>
                                 <span>{index}</span>
                             </li>
