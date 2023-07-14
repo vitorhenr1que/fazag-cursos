@@ -2,9 +2,9 @@
 import { Courses } from './components/Courses'
 import { FiveReasons } from './components/FiveReasons'
 import { Header } from './components/Header/Header'
+import Script from 'next/script'
 import './globals.scss'
 import { Inter, Oswald } from 'next/font/google'
-import Head from 'next/head'
 import { Slide } from './components/Slide'
 
 export const inter = Inter({ weight: ['400','500','600','700','800'], subsets: ['latin'] })
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
           <Slide/>
           <Courses/>
           
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossOrigin="anonymous"></script>
+          <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossOrigin="anonymous"></Script>
           
         </body>
     </html>
