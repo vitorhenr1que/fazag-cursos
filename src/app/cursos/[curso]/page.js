@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import psicologia from '../../../../public/courses/psicologia.jpg'
 import styles from './style.module.scss'
-import { oswald } from '@/app/layout'
-import { InfoCourse } from '@/app/components/InfoCourse'
+import { oswald } from '../../layout'
+import { InfoCourse } from '../../components/InfoCourse'
 import axios from 'axios'
-import { getClient } from '@/app/services/prismic'
+import { getClient } from '../../services/prismic'
 import { PrismicNextImage } from '@prismicio/next'
 
 
@@ -68,7 +68,7 @@ export default async function Cursos({params}){
             discipline4={course.discipline4} 
             discipline5={course.discipline5} 
             discipline6={course.discipline6} />
-        {console.log(response.data)}
+
         
         </div>
     )

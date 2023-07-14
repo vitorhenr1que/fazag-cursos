@@ -6,13 +6,27 @@ import { api } from "../../services/api";
 import { Loading } from "./Loading";
 import { useState } from "react";
 import axios from "axios";
+import InputMask from 'react-input-mask'
+
+
 
 
 
 export function ModalMatriz({course}) {
         const [openModal, setOpenModal] = useState(false)
         const [loading, setLoading] = useState(false)
+        const [telephone, setTelephone] = useState('')
 
+        function verifyEmail(email){
+          const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+          if(regexEmail.test(email)){
+            return email
+          }
+          else {
+            return false
+          }
+        }
 
         async function handleSubmit(e){
           e.preventDefault()
@@ -23,6 +37,16 @@ export function ModalMatriz({course}) {
           console.log(data)
           console.log(course)
 
+          
+          if(verifyEmail(data.email)){
+
+          } else {
+            setLoading(false)
+            return alert('Insira um e-mail válido!')
+          }
+
+
+
           try {
             await api.post('leads/create', {
               nome: data.nome,
@@ -31,13 +55,20 @@ export function ModalMatriz({course}) {
               course: course
             })
 
+            await axios.post('/api/nodemailer', {
+              nome: data.nome,
+                email: data.email,
+                tel: data.tel,
+                course: course
+            })
 
-            await api.post('leads/myleads', {
+            
+            /*await axios.post('api/nodemailer/leads', {
               nome: data.nome,
               email: data.email,
               tel: data.tel,
               course: course
-            })
+            })*/
 
             setLoading(false)
             
@@ -81,10 +112,12 @@ export function ModalMatriz({course}) {
 
           <label htmlFor="email" className={styles.labels}>E-mail <span>*</span></label>
           <input type="text" name="email" id="email" placeholder="E-mail" className={`${styles.input}`} required/>
-
+         
           <label htmlFor="tel" className={styles.labels}>Celular <span>*</span></label>
-          <input type="text" name="tel" id="tel" placeholder="Celular (Whatsapp)" className={`${styles.input}`} />
-
+         <InputMask className={`${styles.input}`} mask={"(99) 99999-9999"} maskChar="_" placeholder="(00) 00000-0000">
+          {(inputProps) => <input {...inputProps} type="text" name="tel" id="tel"   />}
+         </InputMask>
+         
           <button className={styles.enviarButton} type='submit'><span>Baixar</span></button>
         </form>
         
