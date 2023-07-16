@@ -93,10 +93,11 @@
                 font-weight: 700;
             }
         }
-        .inscrevaSeDiv{
+        .inscrevaSeLink{
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
             .inscrevaSeButton{
                 border: none;
                 background: var(--blue);
@@ -107,9 +108,12 @@
                 font-weight: 600;
                 cursor: pointer;
                 transition: .2s;
-                color: #000;
+                color: var(--white);
                 &:hover {
-                    color: var(--white);
+                    color: #000;
+                }
+                .inscrevaSeButtonIcon{
+                    margin-right: .5rem;
                 }
             }
         }
@@ -166,5 +170,8 @@
     }
     .boxContainer{
         gap: 1rem !important;
+    }
+    .inscrevaSeButton{
+        font-size: .8rem !important;
     }
 }

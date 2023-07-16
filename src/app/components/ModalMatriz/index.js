@@ -72,7 +72,7 @@ export function ModalMatriz({course}) {
 
             setLoading(false)
             
-            alert('Mensagem enviada!')
+            alert('A matriz foi enviada! Por favor, verifique sua caixa de entrada de e-mail.')
             setOpenModal(false)
           } catch(err){
             console.log(err, 'Erro com a validação do formulário')
@@ -92,7 +92,7 @@ export function ModalMatriz({course}) {
               }}>
     <Dialog.Trigger asChild >
       <button className={`${styles.btnMatriz}`}>
-        <span>Baixe a matriz do curso</span>
+        <span>Receba a matriz por e-mail</span>
       </button>
     </Dialog.Trigger>
     <Dialog.Portal>

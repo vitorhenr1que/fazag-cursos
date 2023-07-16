@@ -6,6 +6,9 @@ import { InfoCourse } from '../../components/InfoCourse'
 import axios from 'axios'
 import { getClient } from '../../services/prismic'
 import { PrismicNextImage } from '@prismicio/next'
+import Link from 'next/link'
+import { PiWhatsappLogo } from 'react-icons/pi'
+import { LiaWhatsapp } from 'react-icons/lia'
 
 
 export default async function Cursos({params}){
@@ -32,7 +35,8 @@ export default async function Cursos({params}){
 
                     <div className={styles.textBoxDiv}>
                         <span className={styles.grau}>{course.grau} em</span>
-                        <h2 className={styles.courseName}>{course.title}</h2>
+                        
+                        <h2 className={styles.courseName}>{course.title.includes('(') ? course.title.split('(')[0] : course.title}</h2>
                     </div>
 
                     <div className={styles.ulDiv}>
@@ -52,11 +56,13 @@ export default async function Cursos({params}){
                         <p>{course.salevalue}<span>/mês</span></p>
                     </div>
 
-                    <div className={styles.inscrevaSeDiv}>
+                    <Link href={'/'} className={styles.inscrevaSeLink}>
+                        
                         <button className={styles.inscrevaSeButton}>
-                            Matricule-se
+                        <LiaWhatsapp className={styles.inscrevaSeButtonIcon} size={32}/>
+                            Entre em contato
                         </button>
-                    </div>
+                    </Link>
     </div>
             </div>
         </div>

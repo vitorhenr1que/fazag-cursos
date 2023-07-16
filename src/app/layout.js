@@ -25,6 +25,14 @@ export default function RootLayout({ children }) {
       <head>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossOrigin="anonymous"/>
       </head>
+<Script async src="https://www.googletagmanager.com/gtag/js?id=G-Q92YDDZNWQ"></Script>
+<Script>
+  {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q92YDDZNWQ');`}
+</Script>
       <body className={inter.className}>
           <Header/>
           {children}
