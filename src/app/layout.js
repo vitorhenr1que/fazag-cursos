@@ -6,6 +6,7 @@ import Script from 'next/script'
 import './globals.scss'
 import { Inter, Oswald } from 'next/font/google'
 import { Slide } from './components/Slide'
+import Image from 'next/image'
 
 export const inter = Inter({ weight: ['400','500','600','700','800'], subsets: ['latin'] })
 
@@ -36,7 +37,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '582323160772048');
 fbq('track', 'PageView');`}
 </script>
-<noscript><img height="1" width="1" style="display:none"
+<noscript><Image height={1} width={1} className=".img"
 src="https://www.facebook.com/tr?id=582323160772048&ev=PageView&noscript=1"
 /></noscript>
       </head>
