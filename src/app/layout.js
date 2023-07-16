@@ -24,7 +24,25 @@ export default function RootLayout({ children }) {
     <html lang="pt-BR">
       <head>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossOrigin="anonymous"/>
+      <Script>
+{`!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '582323160772048');
+fbq('track', 'PageView');`}
+</Script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=582323160772048&ev=PageView&noscript=1"
+/></noscript>
       </head>
+
+
+
 <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Q92YDDZNWQ"></Script>
 <Script>
   {`window.dataLayer = window.dataLayer || [];
