@@ -45,7 +45,7 @@ src="https://www.facebook.com/tr?id=582323160772048&ev=PageView&noscript=1"
 
 
 <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Q92YDDZNWQ"></Script>
-<Script>
+<Script id='google-tag-id'>
   {`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -59,7 +59,7 @@ src="https://www.facebook.com/tr?id=582323160772048&ev=PageView&noscript=1"
           <Slide/>
           <Courses/>
           
-          <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossOrigin="anonymous"></Script>
+          <Script id='bootstrap-id' src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossOrigin="anonymous"></Script>
           
         </body>
     </html>
