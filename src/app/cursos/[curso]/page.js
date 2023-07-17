@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import psicologia from '../../../../public/courses/psicologia.jpg'
 import styles from './style.module.scss'
-import { oswald } from '../../layout'
+import { metadata, oswald } from '../../layout'
 import { InfoCourse } from '../../components/InfoCourse'
 import axios from 'axios'
 import { getClient } from '../../services/prismic'
@@ -9,20 +9,36 @@ import { PrismicNextImage } from '@prismicio/next'
 import Link from 'next/link'
 import { PiWhatsappLogo } from 'react-icons/pi'
 import { LiaWhatsapp } from 'react-icons/lia'
+import Head from 'next/head'
+
+
+
+
+export async function generateMetadata({params}){
+
+        const client = getClient()
+        const response = await client.getByUID('courses', params.curso, {})
+        const course = response.data
+
+    return {
+        title: `${course.title} | FAZAG`,
+        description: `Graduação em ${course.title}, ${course.modalidade}, em ${course.duration}`,
+    }
+  }
 
 
 export default async function Cursos({params}){
-
     
         const client = getClient()
         const response = await client.getByUID('courses', params.curso, {})
         const course = response.data
         const img = course.image.url.split('?')
 
+        
 
     return(
+       
         <div className={styles.containerCourse}>
-
         <div className={styles.imgContainer}>
             {/*<Image className={styles.imgCourses} src={`${course.image.url}`} fill objectFit='cover' alt={`${params.curso}`}/>*/}
             <PrismicNextImage field={course.image} className={styles.imgCourses} alt=""/>
@@ -77,5 +93,6 @@ export default async function Cursos({params}){
 
         
         </div>
+        
     )
 }

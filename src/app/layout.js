@@ -15,8 +15,9 @@ export const oswald = Oswald({
   subsets: ['latin']
 })
 
+
 export const metadata = {
-  title: 'FAZAG - Faculdade Zacarias de Góes',
+  title: 'INICIO | Faculdade Zacarias de Góes',
   description: 'Faculdade em Valença - BA',
 }
 
