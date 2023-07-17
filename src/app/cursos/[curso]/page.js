@@ -56,7 +56,7 @@ export default async function Cursos({params}){
                         <p>{course.salevalue}<span>/mês</span></p>
                     </div>
 
-                    <Link href={'/'} className={styles.inscrevaSeLink}>
+                    <Link href={'/'} id='click_whatsapp' className={styles.inscrevaSeLink}>
                         
                         <button className={styles.inscrevaSeButton}>
                         <LiaWhatsapp className={styles.inscrevaSeButtonIcon} size={32}/>
