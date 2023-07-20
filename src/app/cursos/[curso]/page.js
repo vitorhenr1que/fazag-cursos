@@ -9,8 +9,6 @@ import { PrismicNextImage } from '@prismicio/next'
 import Link from 'next/link'
 import { PiWhatsappLogo } from 'react-icons/pi'
 import { LiaWhatsapp } from 'react-icons/lia'
-import Head from 'next/head'
-
 
 
 
@@ -28,7 +26,7 @@ export async function generateMetadata({params}){
 
 
 export default async function Cursos({params}){
-    
+
         const client = getClient()
         const response = await client.getByUID('courses', params.curso, {})
         const course = response.data
