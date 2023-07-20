@@ -6,7 +6,6 @@ import Script from 'next/script'
 import './globals.scss'
 import { Inter, Oswald } from 'next/font/google'
 import { Slide } from './components/Slide'
-import Image from 'next/image'
 
 export const inter = Inter({ weight: ['400','500','600','700','800'], subsets: ['latin'] })
 
