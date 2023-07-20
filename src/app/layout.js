@@ -6,6 +6,7 @@ import Script from 'next/script'
 import './globals.scss'
 import { Inter, Oswald } from 'next/font/google'
 import { Slide } from './components/Slide'
+import Image from 'next/image'
 
 export const inter = Inter({ weight: ['400','500','600','700','800'], subsets: ['latin'] })
 
@@ -46,8 +47,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   fbq('init', '316246934103897');
   fbq('track', 'PageView');`}
 </Script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=316246934103897&ev=PageView&noscript=1"
+<noscript><Image height={1} width={1} style={{display:'none'}}
+  src="https://www.facebook.com/tr?id=316246934103897&ev=PageView&noscript=1" alt=''
 /></noscript>
 {/*End Meta Pixel Code*/}
       </head>
@@ -60,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <Courses/>
           
           <Script id='bootstrap-id' src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossOrigin="anonymous"></Script>
-          <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM}" height="0" width="0" style="display:none;visibility:hidden`}></iframe></noscript>
+          <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM}`} height="0" width="0" style={{display:'none', visibility:'hidden'}}></iframe></noscript>
         </body>
     </html>
   )
