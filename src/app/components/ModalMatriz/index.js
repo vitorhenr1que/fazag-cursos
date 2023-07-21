@@ -7,15 +7,14 @@ import { Loading } from "./Loading";
 import { useState } from "react";
 import axios from "axios";
 import InputMask from 'react-input-mask'
-
-
-
+import { useRouter } from "next/navigation";
 
 
 export function ModalMatriz({course}) {
         const [openModal, setOpenModal] = useState(false)
         const [loading, setLoading] = useState(false)
         const [telephone, setTelephone] = useState('')
+        const route = useRouter()
 
         function verifyEmail(email){
           const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -72,7 +71,7 @@ export function ModalMatriz({course}) {
 
             setLoading(false)
             
-            alert('A matriz foi enviada! Por favor, verifique sua caixa de entrada de e-mail.')
+            route.push('/matriz-enviada')
             setOpenModal(false)
           } catch(err){
             console.log(err, 'Erro com a validação do formulário')

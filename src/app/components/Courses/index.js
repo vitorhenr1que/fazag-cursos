@@ -16,7 +16,7 @@ export async function Courses(){
         },
     })
     const response = client.data
-    console.log(client[1])
+
 
     return(
         <section className={`${styles.trueContaiener}`}>
