@@ -75,7 +75,7 @@ export function ModalMatriz({course}) {
             setOpenModal(false)
           } catch(err){
             console.log(err, 'Erro com a validação do formulário')
-            alert('Erro com a validação do formulário')
+            alert(`Erro com a validação do formulário: \n\n Verifique se todas as informações estão preenchidas corretamente ou entre em contato no botão de Whatsapp acima.`)
             setLoading(false)
           }
         }
@@ -110,7 +110,7 @@ export function ModalMatriz({course}) {
           <input type="text" name="nome" id="name" placeholder="Nome" className={`${styles.input}`} required/>
 
           <label htmlFor="email" className={styles.labels}>E-mail <span>*</span></label>
-          <input type="text" name="email" id="email" placeholder="E-mail" className={`${styles.input}`} required/>
+          <input type="email" name="email" id="email" placeholder="E-mail" className={`${styles.input}`} required/>
          
           <label htmlFor="tel" className={styles.labels}>Celular <span>*</span></label>
          <InputMask className={`${styles.input}`} mask={"(99) 99999-9999"} maskChar="_" placeholder="(00) 00000-0000">
