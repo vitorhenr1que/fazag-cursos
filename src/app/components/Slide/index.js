@@ -13,7 +13,7 @@ export function Slide(){
         <div className={styles.slideContainer}>
             <p className={styles.titleCarousel}>Confira algumas fotos e eventos da FAZAG</p>
 <div id="carouselExampleFade" className="carousel slide carousel-fade">
-  <div className={`carousel-inner ${styles.carouselDiv}`}>
+  <div className={`carousel-inner ${styles.carouselDiv}`} >
     <div className={`carousel-item active ${styles.imgCarouselDiv}`}>
       <Image src={fazag} className="d-block w-100" objectFit='cover'  fill quality={100}  alt="..."/>
     </div>

@@ -21,7 +21,10 @@ export const metadata = {
   description: 'Faculdade em Valença - BA',
 }
 
+
+
 export default function RootLayout({ children }) {
+
   return (
     <html lang="pt-BR">
       <head>
@@ -44,11 +47,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '316246934103897');
+  fbq('init', '${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL}');
   fbq('track', 'PageView');`}
 </Script>
 <noscript><Image height={1} width={1} style={{display:'none'}}
-  src="https://www.facebook.com/tr?id=316246934103897&ev=PageView&noscript=1" alt=''
+  src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL}&ev=PageView&noscript=1`} alt=''
 /></noscript>
 {/*End Meta Pixel Code*/}
       </head>
