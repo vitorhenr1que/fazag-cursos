@@ -7,15 +7,14 @@ import { Loading } from "./Loading";
 import { useState } from "react";
 import axios from "axios";
 import InputMask from 'react-input-mask'
-
-
-
+import { useRouter } from "next/navigation";
 
 
 export function ModalMatriz({course}) {
         const [openModal, setOpenModal] = useState(false)
         const [loading, setLoading] = useState(false)
         const [telephone, setTelephone] = useState('')
+        const route = useRouter()
 
         function verifyEmail(email){
           const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -72,11 +71,11 @@ export function ModalMatriz({course}) {
 
             setLoading(false)
             
-            alert('A matriz foi enviada! Por favor, verifique sua caixa de entrada de e-mail.')
+            route.push('/matriz-enviada')
             setOpenModal(false)
           } catch(err){
             console.log(err, 'Erro com a validação do formulário')
-            alert('Erro com a validação do formulário')
+            alert(`Erro com a validação do formulário: \n\n Verifique se todas as informações estão preenchidas corretamente ou entre em contato no botão de Whatsapp acima.`)
             setLoading(false)
           }
         }
@@ -111,7 +110,7 @@ export function ModalMatriz({course}) {
           <input type="text" name="nome" id="name" placeholder="Nome" className={`${styles.input}`} required/>
 
           <label htmlFor="email" className={styles.labels}>E-mail <span>*</span></label>
-          <input type="text" name="email" id="email" placeholder="E-mail" className={`${styles.input}`} required/>
+          <input type="email" name="email" id="email" placeholder="E-mail" className={`${styles.input}`} required/>
          
           <label htmlFor="tel" className={styles.labels}>Celular <span>*</span></label>
          <InputMask className={`${styles.input}`} mask={"(99) 99999-9999"} maskChar="_" placeholder="(00) 00000-0000">

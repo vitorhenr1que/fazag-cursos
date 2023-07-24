@@ -70,7 +70,7 @@ export default async function Cursos({params}){
                         <p>{course.salevalue}<span>/mês</span></p>
                     </div>
 
-                    <Link href={'/matriz-enviada'} id='click_whatsapp' className={styles.inscrevaSeLink}>
+                    <Link target='_blank' href={'https://api.whatsapp.com/send?phone=5575981048077&text=Ol%C3%A1,%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas'} id='click_whatsapp' className={styles.inscrevaSeLink}>
                         
                         <button className={styles.inscrevaSeButton}>
                         <LiaWhatsapp className={styles.inscrevaSeButtonIcon} size={32}/>
