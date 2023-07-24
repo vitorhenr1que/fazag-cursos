@@ -17,7 +17,6 @@
     max-height: 900px;
     border-radius: 4px;
     padding: 2rem;
-   
 }
 
 .DialogTitle {
@@ -103,15 +102,18 @@
 
     @media(max-width: 400px){
         .DialogContent {
+            overflow: scroll;
+            max-width: 90vw;
+            height: 65%;
             width: 90vw;
-            max-height: 600px;
+
         }
     }
 
     @media(max-height: 720px){
         .DialogContent {
             width: 90vw;
-            max-height: 600px;
+            max-height: 700px;
 
         }
     }
@@ -119,7 +121,7 @@
     @media(max-height: 600px){
         .DialogContent {
             width: 90vw;
-            max-height: 500px;
+            max-height: 600px;
 
         }
     }
