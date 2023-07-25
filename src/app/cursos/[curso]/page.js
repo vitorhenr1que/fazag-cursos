@@ -68,6 +68,7 @@ export default async function Cursos({params}){
                     <div className={styles.courseValues}>
                         <s>{course.totalvalue}</s>
                         <p>{course.salevalue}<span>/mês</span></p>
+                        {params.curso === 'psicologia' && <p className={styles.obtenhaDesconto}>30% de desconto através de convênios.</p>}
                     </div>
 
                     <Link target='_blank' href={'https://api.whatsapp.com/send?phone=5575981048077&text=Ol%C3%A1,%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas'} id='click_whatsapp' className={styles.inscrevaSeLink}>
