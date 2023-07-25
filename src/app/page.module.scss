@@ -88,6 +88,10 @@
       flex: 1;
       text-decoration: none;
       color: var(--white);
+      transition: .2s;
+      &:hover {
+        color: var(--blue);
+      }
     }
   }
 }

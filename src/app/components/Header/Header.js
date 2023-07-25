@@ -26,7 +26,7 @@ export function Header(){
                 </ul>
 
                 <button className={styles.button}>
-                    <Link target="blank" href={'https://docs.google.com/forms/d/e/1FAIpQLScJfSdlpyltqrLxa21H8bJE62xNkwI-BwqrPOoES1wu9pCSyA/viewform?pli=1'}>MATRICULE-SE</Link>
+                    <Link target="_blank" id='click_whatsapp_header' href={'https://api.whatsapp.com/send?phone=5575981048077&text=Ol%C3%A1,%20gostaria%20de%20me%20matricular'}>MATRICULE-SE</Link>
                 </button>
 
             </div>
