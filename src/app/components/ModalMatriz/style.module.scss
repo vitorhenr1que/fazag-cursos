@@ -82,7 +82,7 @@
         background: var(--blue);
         padding: 1rem;
         border-radius: 50px;
-        width: 45%;
+        width: 70%;
         color: var(--white);
         font-weight: 600;
         font-size: 1.1rem;
@@ -97,6 +97,11 @@
         .DialogContent {
             width: 90vw;
             max-height: 900px;
+        }
+        .btnMatriz{
+            span {
+                font-size: .8rem !important;
+            }
         }
     }
 

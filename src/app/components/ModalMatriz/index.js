@@ -91,7 +91,7 @@ export function ModalMatriz({course}) {
               }}>
     <Dialog.Trigger asChild >
       <button className={`${styles.btnMatriz}`}>
-        <span>Receba a matriz por e-mail</span>
+        <span>Receba todas as disciplinas por e-mail</span>
       </button>
     </Dialog.Trigger>
     <Dialog.Portal>
