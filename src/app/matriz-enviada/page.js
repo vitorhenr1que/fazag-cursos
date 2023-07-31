@@ -26,7 +26,7 @@ return (
                 <p>Se você não recebeu o e-mail ou possui alguma dúvida, sinta-se à vontade para entrar em contato diretamente com um de nossos atendentes.</p>
             </div>
             <div className={styles.d}>
-                <Link target='_blank' id='form_click_whatsapp' href="https://api.whatsapp.com/send?phone=5575981048077&text=Ol%C3%A1,%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas" className={styles.linkWhatsapp}>
+                <Link target='_blank' id='click_whatsapp_form' href="https://api.whatsapp.com/send?phone=5575981048077&text=Ol%C3%A1,%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas" className={styles.linkWhatsapp}>
                     <MdWhatsapp size={32} color="#fff"/>
                     <span>ENTRE EM CONTATO</span>
                 </Link>
