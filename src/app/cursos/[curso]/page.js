@@ -1,3 +1,4 @@
+
 import Image from 'next/image'
 import psicologia from '../../../../public/courses/psicologia.jpg'
 import styles from './style.module.scss'
@@ -9,8 +10,7 @@ import { PrismicNextImage } from '@prismicio/next'
 import Link from 'next/link'
 import { PiWhatsappLogo } from 'react-icons/pi'
 import { LiaWhatsapp } from 'react-icons/lia'
-
-
+import {Vagas} from '../../components/Vagas/Vagas'
 
 export async function generateMetadata({params}){
 
@@ -23,6 +23,7 @@ export async function generateMetadata({params}){
         description: `Graduação em ${course.title}, ${course.modalidade}, em ${course.duration}`,
     }
   }
+
 
 
 export default async function Cursos({params}){
@@ -71,13 +72,8 @@ export default async function Cursos({params}){
                         {params.curso === 'psicologia' && <p className={styles.obtenhaDesconto}>30% de desconto através de convênios.</p>}
                     </div>
 
-                    <Link target='_blank' href={'https://api.whatsapp.com/send?phone=5575981048077&text=Ol%C3%A1,%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas'} id='click_whatsapp' className={styles.inscrevaSeLink}>
-                        
-                        <button className={styles.inscrevaSeButton}>
-                        <LiaWhatsapp className={styles.inscrevaSeButtonIcon} size={32}/>
-                            Entre em contato
-                        </button>
-                    </Link>
+                       <Vagas/>
+
     </div>
             </div>
         </div>

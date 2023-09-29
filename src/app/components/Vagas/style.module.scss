@@ -1,0 +1,49 @@
+
+.inscrevaSeLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    .inscrevaSeButton{
+        border: none;
+        background: var(--blue);
+        width: 80%;
+        padding: 1rem;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: .2s;
+        color: var(--white);
+        &:hover {
+            color: #000;
+        }
+        .inscrevaSeButtonIcon{
+            margin-right: .5rem;
+        }
+    }
+}
+
+
+
+@media(max-width: 479px){
+    .textContainer{
+        h1 {
+            span {
+                font-size: 3rem;
+                line-height: 55px;
+                text-align: center;
+            }
+        }
+        p {
+            font-size: 1rem !important;
+            
+        }
+    }
+    .boxContainer{
+        gap: 1rem !important;
+    }
+    .inscrevaSeButton{
+        font-size: .8rem !important;
+    }
+}
