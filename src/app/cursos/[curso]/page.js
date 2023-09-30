@@ -72,7 +72,7 @@ export default async function Cursos({params}){
                         {params.curso === 'psicologia' && <p className={styles.obtenhaDesconto}>30% de desconto através de convênios.</p>}
                     </div>
 
-                       <Vagas/>
+                       <Vagas course={params.curso}/>
 
     </div>
             </div>

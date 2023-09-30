@@ -5,6 +5,7 @@ import styles from './style.module.scss'
 import { LiaWhatsapp } from "react-icons/lia"
 import axios from "axios"
 import { api } from "../../services/api"
+import { use, useEffect, useState } from "react"
 
 function RandomNumbers(){
     return Math.floor(Math.random() * 23)
@@ -12,24 +13,72 @@ function RandomNumbers(){
 
 
 
-export function Vagas(){
+export function Vagas({ course }){
+    const [courseCorrect, setCourseCorrect] = useState(course)
+    const [numberVencace, setNumberVecance] = useState(40)
+    const [responseApi, setResponseApi] = useState("")
 
+    useEffect(() => {
 
-    function VerifyNumberVacancies(){
-        if(vagas == 0){
-            setTimeout(()=> {
-                setVagas(RandomNumbers)
-            },10000)
-           return
-        }
-        setVagas(vagas - 1)
+        async function GetNumberVecance(){
+            if(responseApi == ""){ 
+                const test = await api.post('vagas/vagas') // Pegue a resposta e adicione na state para não chamar toda hora
+                console.log(test.data.getNumberVencace)
+                setResponseApi(test.data.getNumberVencace)
+
+            }
+            
+            
+            if(courseCorrect.includes('-')){  //Se houver "-" altere para "_"
+                //console.log(courseCorrect, 'COURSE ANTES')
+                setCourseCorrect(courseCorrect.replaceAll('-','_'))
+
+            }
+            
+            setNumberVecance(responseApi[`${courseCorrect}`])
+            console.log(numberVencace)
+            if(numberVencace == false){
+                try {
+                    console.log('ENTROU NO SE DO VALOR 0...')
+                    
+                    await api.post('vagas/alterar', {
+                        course: {
+                            [courseCorrect]: true,
+                        },
+                        value: {
+                            [courseCorrect]: Math.floor(Math.random() * 5)
+                        }
+                    })
+                } catch(e) {
+                    console.log(e.message)
+                }
+            }
+            //console.log(courseCorrect, 'COURSE DEPOIS')
+       }
+       GetNumberVecance()
+    }, [responseApi, numberVencace])
+
+    async function handleButtonContact(){
+        setTimeout(async () => {
+            try {
+                console.log('ENTROU NO TIME OUT')
+                await api.post('vagas/alterar', {
+                    course: {
+                        [courseCorrect]: true,
+                    },
+                    value: {
+                        [courseCorrect]: numberVencace - 1
+                    }
+                })
+            } catch(e) {
+                console.log(e.message)
+            }
+        }, 1000)
+
+       
     }
 
-   async function Test(){
-    const res = await axios.post('http://localhost:3000/api/vagas/vagas')
-    const test = res.data
-    return test
-   }
+   
 
     return(
         <>
@@ -40,8 +89,9 @@ export function Vagas(){
             Entre em contato
         </button>
         </Link>
-        <span>xx vagas restantes</span>
-        {}
+        <button onClick={handleButtonContact}>Clique</button>
+        <span>{numberVencace ? numberVencace : "40"} vagas restantes</span>
+        
         
         </>
     )
