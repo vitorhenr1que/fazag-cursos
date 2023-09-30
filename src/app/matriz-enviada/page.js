@@ -11,6 +11,7 @@ export default function Matriz(){
     function backRoute(){
         return route.back()
     }
+
 return (
     <div className={styles.matrizContainer}>
         <div className={styles.matrizGrid}>
