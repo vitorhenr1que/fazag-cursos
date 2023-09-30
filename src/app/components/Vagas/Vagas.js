@@ -46,7 +46,7 @@ export function Vagas({ course }){
                             [courseCorrect]: true,
                         },
                         value: {
-                            [courseCorrect]: Math.floor(Math.random() * 5)
+                            [courseCorrect]: Math.floor(Math.random() * 23)
                         }
                     })
                 } catch(e) {
@@ -84,13 +84,12 @@ export function Vagas({ course }){
         <>
         <Link target='_blank' href={'https://api.whatsapp.com/send?phone=5575981048077&text=Ol%C3%A1,%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas'} id='click_whatsapp' className={styles.inscrevaSeLink}>
                         
-        <button className={styles.inscrevaSeButton}>
+        <button className={styles.inscrevaSeButton} onClick={handleButtonContact}>
         <LiaWhatsapp className={styles.inscrevaSeButtonIcon} size={32}/>
             Entre em contato
         </button>
         </Link>
-        <button onClick={handleButtonContact}>Clique</button>
-        <span>{numberVencace ? numberVencace : "40"} vagas restantes</span>
+        <span style={{textAlign: "center"}}>{numberVencace ? numberVencace : "20"} vagas restantes</span>
         
         
         </>
