@@ -60,7 +60,7 @@
         button {
             border: none;
             background: var(--blue);
-            color: var(--white);
+            color: var(--buttons-text);
             padding: 1rem 2rem;
             border-radius: 50px;
             font-size: 1rem;
@@ -68,7 +68,7 @@
             cursor: pointer;
             transition: .2s;
             &:hover {
-                color: #000;
+                color: var(--buttons-text-hover);
             }
         }
     }

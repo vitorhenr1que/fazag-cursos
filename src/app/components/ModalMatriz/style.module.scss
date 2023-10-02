@@ -83,13 +83,13 @@
         padding: 1rem;
         border-radius: 50px;
         width: 70%;
-        color: var(--white);
+        color: var(--buttons-text);
         font-weight: 600;
         font-size: 1.1rem;
         transition: .2s;
         border: none;
         &:hover{
-            color: #000;
+            color: var(--buttons-text-hover);
         }
     }
 

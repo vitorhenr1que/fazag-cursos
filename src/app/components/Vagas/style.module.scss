@@ -14,9 +14,9 @@
         font-weight: 600;
         cursor: pointer;
         transition: .2s;
-        color: var(--white);
+        color: var(--buttons-text);
         &:hover {
-            color: #000;
+            color: var(--buttons-text-hover);
         }
         .inscrevaSeButtonIcon{
             margin-right: .5rem;

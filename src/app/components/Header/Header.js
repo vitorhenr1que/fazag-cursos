@@ -10,7 +10,7 @@ export function Header(){
             <div className={styles.headerContainer}>
 
                 <div className={styles.divImg}>
-                    <Link href={'/'}><Image src={logobranca} alt="logo" width={100}/></Link>
+                    <Link href={'/'}><Image src={logobranca} className={styles.logoImg} alt="logo" width={200} /></Link>
                 </div>
 
                 <ul className={styles.ul}>

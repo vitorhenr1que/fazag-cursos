@@ -19,7 +19,10 @@ export const oswald = Oswald({
 export const metadata = {
   title: 'INICIO | Faculdade Zacarias de Góes',
   description: 'Faculdade em Valença - BA',
-  keywords: 'FAZAG, Enem, Graduação, Psicologia',
+  keywords: 'FAZAG, Enem, Graduação, Psicologia', 
+  icons: {
+    icon: '/icon.png'
+  }
 }
 
 
@@ -29,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <head>
-      <link rel="icon" href="/favicon.ico" sizes="any"/>
+      <link rel="icon" href="/icon.png" />
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossOrigin="anonymous"/>
       {/*Google Tag Code*/}
       <Script id='gtm-google-tag'>{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
