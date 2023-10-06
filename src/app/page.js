@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './page.module.scss'
 import { oswald } from './layout'
-import fotoFazag from '../../public/fazag.jpg'
+import fotoFazag from '../../public/fazag.png'
 import Link from 'next/link'
 
 
