@@ -3,24 +3,21 @@ import InputMask from 'react-input-mask';
 import styles from './style.module.scss'
 import { useState, useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
+import { Loading } from '../components/ModalMatriz/Loading'
+import { api } from '../services/api';
+import axios from 'axios';
 
 export default function Matricular(){
 
     const [telephone, setTelephone] = useState()
+    const [loading, setLoading] = useState(false)
     const [dirty, setDirty] = useState(false)
     const [text, setText] = useState('')
     const [value, setValue] = useState('<p>The quick brown fox jumps over the lazy dog</p>');
     const editorRef = useRef(null)
 
-    const save = () => {
-        if (editorRef.current) {
-            const content = editorRef.current.getContent();
-            setDirty(false);
-            editorRef.current.setDirty(false);
-            // an application would save the editor content to the server here
-            console.log(content);
-          }
-    }
+
+
     const log = () => {
         if (editorRef.current) {
           console.log(editorRef.current.getContent());
@@ -37,16 +34,79 @@ export default function Matricular(){
         }
       }
 
+      async function handleSubmit(e){
+        e.preventDefault()
+        setLoading(true)
+
+          if (editorRef.current) {
+              const content = editorRef.current.getContent();
+              setDirty(false);
+              editorRef.current.setDirty(false);
+              // an application would save the editor content to the server here
+              console.log(content);
+            }
+      
+        const formData = new FormData(e.target)
+        const data = Object.fromEntries(formData)
+        console.log('ESTE SÃO OS DADOS DO FORMULÁRIO:', data)
+        
+        if(verifyEmail(data.email)){
+
+        } else {
+          setLoading(false)
+          return alert('Insira um e-mail válido!')
+        }
+
+
+        try {
+          await api.post('inscricao/create', {
+            nome: data.nome,
+            city: data.city,
+            conheceu: data.conheceu,
+            course: data.course,
+            email: data.email,
+            ingresso: data.ingresso,
+            tel: data.tel
+          })
+
+          await axios.post('api/inscricao/email', {
+            nome: data.nome,
+            city: data.city,
+            conheceu: data.conheceu,
+            course: data.course,
+            email: data.email,
+            ingresso: data.ingresso,
+            tel: data.tel,
+            text: editorRef.current.getContent()
+          })
+
+          
+
+          setLoading(false)
+          
+          alert('Inscrição Realizada com sucesso!')
+
+        } catch(err){
+          console.log(err, 'Erro com a validação do formulário')
+          alert(`Erro com a validação do formulário: \n\n Verifique se todas as informações estão preenchidas corretamente ou entre em contato no botão de Whatsapp acima.`)
+          setLoading(false)
+        }
+      }
+
     return (
+        
         <div className={styles.container}>
+
+          {loading && <Loading/>}
+
         <h1>Inscrições FAZAG 2024</h1>
 
-        <form className={styles.formContainer}>
+        <form className={styles.formContainer} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
-            <input placeholder="Nome Completo" className={styles.input} type='name' id="psName"></input>
+            <input placeholder="Nome Completo" className={styles.input} type='name' name='nome' id="psName"></input>
 
             <InputMask className={`${styles.input}`} mask={"(99) 99999-9999"} maskChar="_" placeholder="Celular / Whatsapp" value={telephone} onChange={(e) => setTelephone(e.target.value)}>
-                {(inputProps) => <input {...inputProps} type="text" name="telephone" id="psTelephone"   />}
+                {(inputProps) => <input {...inputProps} type="text" name="tel" id="psTelephone"   />}
             </InputMask>
 
             <input placeholder="E-mail" className={styles.input} name='email' type='email' id="psEmail"></input>
@@ -54,46 +114,46 @@ export default function Matricular(){
             <input placeholder="Cidade" className={styles.input} name='city' type='text' id="psCity"></input>
             <div className={styles.containerSelect}>
                 <div className={styles.divSelect}>
-                    <select name='Como conheceu a FAZAG?' id='psSelectOne' className={styles.select}>
+                    <select name='conheceu' id='psSelectOne' className={styles.select}>
                         <option className={styles.optionOne} value="0" selected disabled>Como conheceu a FAZAG?</option>
-                        <option value="instagram">Facebook</option>
-                        <option value="whatsapp">Instagram</option>
-                        <option value="whatsapp">Google</option>
-                        <option value="whatsapp">Whatsapp</option>
-                        <option value="whatsapp">Panfleto</option>
-                        <option value="whatsapp">Site</option>
-                        <option value="whatsapp">Amigo</option>
-                        <option value="whatsapp">Outros</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Google">Google</option>
+                        <option value="Whatsapp">Whatsapp</option>
+                        <option value="Panfleto">Panfleto</option>
+                        <option value="Site">Site</option>
+                        <option value="Amigo">Amigo</option>
+                        <option value="Outros">Outros</option>
                     </select>
                 </div>
                 <div className={styles.divSelect}>
-                    <select name='Como deseja ingressar?' id='psSelectTwo' className={styles.select}>
+                    <select name='ingresso' id='psSelectTwo' className={styles.select}>
                         <option value="0" className={styles.optionOne} selected disabled>Como deseja ingressar?</option>
-                        <option value="vestibular">Vestibular Online</option>
-                        <option value="enem">Nota do ENEM</option>
-                        <option value="transferencia">Transferência Externa</option>
-                        <option value="segunda">Segunda Graduação</option>
+                        <option value="Vestibular Online">Vestibular Online</option>
+                        <option value="Nota do ENEM">Nota do ENEM</option>
+                        <option value="Transferência Externa">Transferência Externa</option>
+                        <option value="Segunda Graduação">Segunda Graduação</option>
                     </select>
                 </div>
             </div>
             <section>
 
             <div className={styles.divCourseSelect}>
-                    <select name='Selecione o curso desejado' id='psSelectTwo' className={styles.selectCourse}>
+                    <select name='course' id='psSelectTwo' className={styles.selectCourse}>
                         <option value="0" className={styles.optionOne} selected disabled>Selecione o curso desejado</option>
-                        <option value="administracao">Administração</option>
-                        <option value="contabeis">Ciências Contábeis</option>
-                        <option value="ed-fisicab">Educação Física (Bacharelado)</option>
-                        <option value="ed-fisical">Educação Física (Licenciatura)</option>
-                        <option value="engenharia-civil">Engenharia Civil</option>
-                        <option value="enfermagem">Enfermagem</option>
-                        <option value="estetica">Estética e Cosmética</option>
-                        <option value="farmacia">Farmácia</option>
-                        <option value="fisioterapia">Fisioterapia</option>
-                        <option value="nutricao">Nutrição</option>
-                        <option value="pedagogia">Pedagogia</option>
-                        <option value="psicologia">Psicologia</option>
-                        <option value="servico-social">Serviço Social</option>
+                        <option value="Administração">Administração</option>
+                        <option value="Ciências Contábeis">Ciências Contábeis</option>
+                        <option value="Educação Física (Bacharelado)">Educação Física (Bacharelado)</option>
+                        <option value="Educação Física (Licenciatura)">Educação Física (Licenciatura)</option>
+                        <option value="Engenharia Civil">Engenharia Civil</option>
+                        <option value="Enfermagem">Enfermagem</option>
+                        <option value="Estética e Cosmética">Estética e Cosmética</option>
+                        <option value="Farmácia">Farmácia</option>
+                        <option value="Fisioterapia">Fisioterapia</option>
+                        <option value="Nutrição">Nutrição</option>
+                        <option value="Pedagogia">Pedagogia</option>
+                        <option value="Psicologia">Psicologia</option>
+                        <option value="Serviço Social">Serviço Social</option>
                     </select>
                 </div>
 
@@ -136,11 +196,12 @@ export default function Matricular(){
                   content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                 }}
               />
-              <button className={styles.buttonSubmit} onClick={save} disabled={!dirty}>Enviar</button>
+              <button className={styles.buttonSubmit} type='submit' disabled={!dirty}>Enviar</button>
             {dirty && <p>O conteúdo ainda não está salvo!</p>}
             </div>
         </div>
         </form>
         </div>
+        
     )
 }

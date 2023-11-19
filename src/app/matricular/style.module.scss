@@ -140,6 +140,12 @@
         flex-direction: column;
         .divSelect {
             width: 100% !important;
+            .select {
+                text-align-last: center;
+            }
         }
+    }
+    .selectCourse {
+        text-align-last: center;
     }
 }
