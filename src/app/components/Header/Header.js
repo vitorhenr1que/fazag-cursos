@@ -26,7 +26,7 @@ export function Header(){
                 </ul>
 
                 <button className={styles.button}>
-                    <Link target="_blank" id='click_whatsapp_header' href={'https://api.whatsapp.com/send?phone=5575981048077&text=Ol%C3%A1,%20gostaria%20de%20me%20matricular'}>MATRICULE-SE</Link>
+                    <Link href={'/matricular'}>MATRICULE-SE</Link>
                 </button>
 
             </div>

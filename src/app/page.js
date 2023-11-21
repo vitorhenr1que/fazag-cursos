@@ -21,7 +21,7 @@ export default function Home() {
               <button>Conhecer as graduações</button>
             </Link>
             
-            <Link target="_blank" id='click_whatsapp_home' href={'https://api.whatsapp.com/send?phone=5575981048077&text=Ol%C3%A1,%20gostaria%20de%20me%20matricular'} className={styles.link}>Matricular agora</Link>
+            <Link href={'/matricular'} className={styles.link}>Matricular agora</Link>
           </div>
 
           </div>
