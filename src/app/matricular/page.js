@@ -6,6 +6,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import { Loading } from '../components/ModalMatriz/Loading'
 import { api } from '../services/api';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 export default function Matricular(){
 
@@ -15,7 +16,7 @@ export default function Matricular(){
     const [text, setText] = useState('')
     const [value, setValue] = useState('<p>The quick brown fox jumps over the lazy dog</p>');
     const editorRef = useRef(null)
-
+    const route = useRouter()
 
 
     const log = () => {
@@ -85,7 +86,7 @@ export default function Matricular(){
           setLoading(false)
           
           alert('Inscrição Realizada com sucesso!')
-
+          route.push('/inscricao-enviada')
         } catch(err){
           console.log(err, 'Erro com a validação do formulário')
           alert(`Erro com a validação do formulário: \n\n Verifique se todas as informações estão preenchidas corretamente ou entre em contato no botão de Whatsapp acima.`)
