@@ -1,7 +1,7 @@
 'use client'
 import InputMask from 'react-input-mask';
 import styles from './style.module.scss'
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { Loading } from '../components/ModalMatriz/Loading'
 import { api } from '../services/api';
@@ -83,7 +83,7 @@ export default function Matricular(){
 
           
 
-          setLoading(false)
+          setLoading(false) 
           
           alert('Inscrição Realizada com sucesso!')
           route.push('/inscricao-enviada')
@@ -91,13 +91,10 @@ export default function Matricular(){
           console.log(err, 'Erro com a validação do formulário')
           alert(`Erro com a validação do formulário: \n\n Verifique se todas as informações estão preenchidas corretamente ou entre em contato no botão de Whatsapp acima.`)
           setLoading(false)
-        }
+        } 
       }
 
-      useEffect(() => {
-        // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
-        return () => files.forEach(file => URL.revokeObjectURL(file.preview));
-      }, []);
+
 
     return (
         
