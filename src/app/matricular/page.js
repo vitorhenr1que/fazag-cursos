@@ -1,7 +1,7 @@
 'use client'
 import InputMask from 'react-input-mask';
 import styles from './style.module.scss'
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { Loading } from '../components/ModalMatriz/Loading'
 import { api } from '../services/api';
@@ -17,13 +17,12 @@ export default function Matricular(){
     const [value, setValue] = useState('<p>The quick brown fox jumps over the lazy dog</p>');
     const editorRef = useRef(null)
     const route = useRouter()
+    const [ingresso, setIngresso] = useState('Vestibular Online')
 
 
-    const log = () => {
-        if (editorRef.current) {
-          console.log(editorRef.current.getContent());
-        }
-      };
+
+
+
     function verifyEmail(email){
         const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
@@ -49,6 +48,7 @@ export default function Matricular(){
       
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
+        const formIngresso = ingresso
         console.log('ESTE SÃO OS DADOS DO FORMULÁRIO:', data)
         
         if(verifyEmail(data.email)){
@@ -78,7 +78,7 @@ export default function Matricular(){
             email: data.email,
             ingresso: data.ingresso,
             tel: data.tel,
-            text: editorRef.current.getContent()
+            text: formIngresso === 'Vestibular Online' ? editorRef.current.getContent() : "<p> </p>"
           })
 
           
@@ -93,6 +93,11 @@ export default function Matricular(){
           setLoading(false)
         }
       }
+
+      useEffect(() => {
+        // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
+        return () => files.forEach(file => URL.revokeObjectURL(file.preview));
+      }, []);
 
     return (
         
@@ -128,7 +133,7 @@ export default function Matricular(){
                     </select>
                 </div>
                 <div className={styles.divSelect}>
-                    <select name='ingresso' id='psSelectTwo' className={styles.select}>
+                    <select name='ingresso' id='psSelectTwo' className={styles.select} onChange={(e) => {setIngresso(e.target.value)}}>
                         <option value="0" className={styles.optionOne} selected disabled>Como deseja ingressar?</option>
                         <option value="Vestibular Online">Vestibular Online</option>
                         <option value="Nota do ENEM">Nota do ENEM</option>
@@ -161,25 +166,29 @@ export default function Matricular(){
             </section>
             <div>
                 
-                <section className={styles.instrucoesDiv}>
-                <hr/>
-                <h3>Instruções</h3>
-                <span>Leia com atenção o tema proposto</span>
-                <span>Será ANULADA a Redação que:</span>
-                <span>1.  Redigida fora dos temas propostos;</span>
-                <span>2.  Apresentada em forma de verso;</span>
-                </section>
-                <hr/>
-                <section className={styles.divRedacao}>
-                <h3>Redação</h3>
-                <h5>Tema: Exclusão Social</h5>
-                <p>A Exclusão Social designa um processo de afastamento e privação de determinados indivíduos ou de grupos sociais em diversos âmbitos da estrutura da sociedade.</p>
-                <p>Trata-se de uma condição inerente ao capitalismo contemporâneo, ou seja, esse problema social foi impulsionado pela estrutura desse sistema econômico e político.</p>
-                <p>Com base nos conhecimentos construídos ao longo de sua formação, redija texto dissertativo- argumentativo em modalidade escrita formal da língua portuguesa sobre o tema “Exclusão Social”, apresentando proposta de intervenção que respeite os direitos humanos. Selecione, organize e relacione, de forma coerente e coesa, argumentos e fatos para defesa de seu ponto de vista.</p>
-                </section>
+               
+            {ingresso === 'Vestibular Online' && 
+            <>
+             <section className={styles.instrucoesDiv}>
+             <hr/>
+             <h3>Instruções</h3>
+             <span>Leia com atenção o tema proposto</span>
+             <span>Será ANULADA a Redação que:</span>
+             <span>1.  Redigida fora dos temas propostos;</span>
+             <span>2.  Apresentada em forma de verso;</span>
+             </section>
+             <hr/>
+             <section className={styles.divRedacao}>
+             <h3>Redação</h3>
+             <h5>Tema: Exclusão Social</h5>
+             <p>A Exclusão Social designa um processo de afastamento e privação de determinados indivíduos ou de grupos sociais em diversos âmbitos da estrutura da sociedade.</p>
+             <p>Trata-se de uma condição inerente ao capitalismo contemporâneo, ou seja, esse problema social foi impulsionado pela estrutura desse sistema econômico e político.</p>
+             <p>Com base nos conhecimentos construídos ao longo de sua formação, redija texto dissertativo- argumentativo em modalidade escrita formal da língua portuguesa sobre o tema “Exclusão Social”, apresentando proposta de intervenção que respeite os direitos humanos. Selecione, organize e relacione, de forma coerente e coesa, argumentos e fatos para defesa de seu ponto de vista.</p>
+             </section>
+            
             <Editor
                 apiKey='21293lyhysv63t5z85qew419tn8gr9nqgf2prhu3hg0y7xvi'
-                onInit={(evt, editor) => editorRef.current = editor}
+                onInit={(evt, editor) => ingresso === "Vestibular Online" ? editorRef.current = editor : editorRef.current = "<p> </p>"}
                 initialValue="<p>Faça a sua redação aqui.</p>"
                 onDirty={() => setDirty(true)}
                 init={{
@@ -197,8 +206,15 @@ export default function Matricular(){
                   content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                 }}
               />
-              <button className={styles.buttonSubmit} type='submit' disabled={!dirty}>Enviar</button>
+              </>}
+            {/* Verificação do Botão desabilitado da redação ou habilitado de outras formas */}                                  
+            { ingresso === 'Vestibular Online' ? 
+
+            <button className={styles.buttonSubmit} type='submit' disabled={!dirty}>Enviar</button> : 
+            <button className={styles.buttonSubmit} type='submit'>Enviar</button> }
+
             {dirty && <p>O conteúdo ainda não está salvo!</p>}
+            {/*ingresso && <pre>{ingresso}</pre>*/}
             </div>
         </div>
         </form>
