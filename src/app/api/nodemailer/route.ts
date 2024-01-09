@@ -6,9 +6,9 @@ import { api } from '../../services/api';
 
 export async function POST(request: Request) {
 
-    const { nome, email, tel, course } = await request.json()
+    const { nome, email, tel, course, courseId } = await request.json()
 
-    console.log(nome, email, tel, course)
+    console.log(nome, email, tel, course, courseId)
     
     console.log('CHegou na requisição!!')
 
@@ -16,8 +16,9 @@ export async function POST(request: Request) {
         nome,
         email,
         tel,
-        course
+        course,
+        courseId
     })
 
-       return NextResponse.json({nome, email, tel, course})
+       return NextResponse.json({nome, email, tel, course, courseId})
 }

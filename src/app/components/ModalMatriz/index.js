@@ -36,9 +36,6 @@ export function ModalMatriz({course, courseId}) {
           
           const formData = new FormData(e.target)
           const data = Object.fromEntries(formData)
-          console.log(data)
-          console.log(course)
-
           
           if(verifyEmail(data.email)){
 
