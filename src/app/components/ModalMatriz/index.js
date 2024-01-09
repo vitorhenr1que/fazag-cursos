@@ -61,7 +61,8 @@ export function ModalMatriz({course, courseId}) {
               nome: data.nome,
                 email: data.email,
                 tel: data.tel,
-                course: courseId
+                courseId: courseId,
+                course: course
             })
 
             
