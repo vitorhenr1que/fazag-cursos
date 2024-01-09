@@ -10,11 +10,14 @@ import InputMask from 'react-input-mask'
 import { useRouter } from "next/navigation";
 
 
-export function ModalMatriz({course}) {
+export function ModalMatriz({course, courseId}) {
         const [openModal, setOpenModal] = useState(false)
         const [loading, setLoading] = useState(false)
         const [telephone, setTelephone] = useState('')
         const route = useRouter()
+
+
+
 
         function verifyEmail(email){
           const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -58,7 +61,7 @@ export function ModalMatriz({course}) {
               nome: data.nome,
                 email: data.email,
                 tel: data.tel,
-                course: course
+                course: courseId
             })
 
             

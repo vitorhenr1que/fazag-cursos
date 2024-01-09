@@ -32,7 +32,6 @@ export default async function Cursos({params}){
         const response = await client.getByUID('courses', params.curso, {})
         const course = response.data
         const img = course.image.url.split('?')
-
         
 
     return(
@@ -79,6 +78,7 @@ export default async function Cursos({params}){
         </div>
         <InfoCourse 
             course={course.title}
+            courseId={params.curso}
             discipline1={course.discipline1}
             discipline2={course.discipline2}
             discipline3={course.discipline3} 
