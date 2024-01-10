@@ -114,7 +114,7 @@ export function ModalMatriz({course, courseId}) {
           <input type="email" name="email" id="email" placeholder="E-mail" className={`${styles.input}`} required/>
          
           <label htmlFor="tel" className={styles.labels}>Celular <span>*</span></label>
-         <InputMask className={`${styles.input}`} mask={"(99) 99999-9999"} maskChar="_" placeholder="(00) 00000-0000">
+         <InputMask className={`${styles.input}`} mask={"(99) 99999-9999"} maskChar="_" placeholder="(00) 00000-0000" required>
           {(inputProps) => <input {...inputProps} type="text" name="tel" id="tel"   />}
          </InputMask>
          
