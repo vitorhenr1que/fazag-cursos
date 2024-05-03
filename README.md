@@ -40,7 +40,18 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  </p>
  
 ## 💻 Autor<br>
-[@vitorhenr1que](https://github.com/vitorhenr1que)
+<table style="border-radius: 10px;">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/vitorhenr1que">
+        <img src="https://avatars.githubusercontent.com/u/85037374?v=4" width="100px;" /><br>
+        <sub>
+          <b>Vitor Henrique</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 -----
 
