@@ -1,0 +1,64 @@
+.container {
+    background-color: var(--white);
+    border-top-left-radius: 7rem;
+    border-top-right-radius: 7rem;
+    .generalContainer{
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+        .boxQuestionContainer{
+            padding: 2rem;
+
+            border-radius: 50px;
+            gap: 1rem;
+            width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            .textContainer{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                .introducao{
+                    font-size: 13px;
+                    color: #727272;
+                }
+                .title{
+                    font-size: 30px;
+                }
+                .textDiv{
+                    display: flex;
+                    flex-direction: column;
+                    gap: .7rem;
+                }
+            }
+            .button {
+                
+                border: none;
+                background-color: var(--blue);
+                width: 100%;
+                height: 50px;
+                border-radius: 50px;
+                font-weight: 600;
+                transition: .3s;
+                &:hover{
+                    background-color: #f1b35c;
+                    
+                }
+            }
+            
+        }
+    }
+}
+
+@media (max-width: 500px){
+    .container{
+
+        border-top-left-radius: 4rem;
+        border-top-right-radius: 4rem;
+       
+    }
+}
