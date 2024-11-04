@@ -19,8 +19,9 @@ export function Course({image, course, totalValue, saleValue, link, hr}){
             <Link href={link} className={styles.links}>
             <h3>{course}</h3>
             </Link>
-            <s>{totalValue}/mês</s>
-            <span>{saleValue}/mês</span>
+            <span>Clique para saber mais sobre o curso de {course}</span>
+            {/* <span>{totalValue}/mês</span> */}
+            {/* <span>{saleValue}/mês</span> */}
         </div>
 
         <Link className={styles.buttonMore} href={link}>

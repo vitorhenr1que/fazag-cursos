@@ -62,14 +62,14 @@ export default async function Cursos({params}){
                     </div>
 
                     <div className={styles.saleDiv}>
-                        <span>DESCONTO GARANTIDO DURANTE TODO O CURSO</span>
+                        <span>ENTRE EM CONTATO PARA MAIS INFORMAÇÕES</span>
                     </div>
 
-                    <div className={styles.courseValues}>
+                    {/* <div className={styles.courseValues}>
                         <s>{course.totalvalue}</s>
                         <p>{course.salevalue}<span>/mês</span></p>
                         {params.curso === 'psicologia' && <p className={styles.obtenhaDesconto}>30% de desconto através de convênios.</p>}
-                    </div>
+                    </div> */}
 
                        <Vagas course={params.curso}/>
 
