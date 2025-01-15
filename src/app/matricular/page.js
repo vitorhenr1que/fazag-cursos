@@ -18,10 +18,8 @@ export default function Matricular(){
     const editorRef = useRef(null)
     const route = useRouter()
     const [ingresso, setIngresso] = useState('Vestibular Online')
-
-
-
-
+    const date = new Date()
+    const actualDate = date.toLocaleString('pt-BR', {year: 'numeric'})
 
     function verifyEmail(email){
         const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -102,7 +100,7 @@ export default function Matricular(){
 
           {loading && <Loading/>}
 
-        <h1>Inscrições FAZAG 2024</h1>
+        <h1>Inscrições FAZAG {actualDate}</h1>
 
         <form className={styles.formContainer} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
