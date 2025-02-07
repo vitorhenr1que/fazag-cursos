@@ -63,7 +63,7 @@ export default function Matricular(){
 
 
         try {
-           await axios.post('api/inscricao/create', {
+           await api.post('inscricao/create', {
              nome: data.nome,
              city: data.city,
              conheceu: data.conheceu,
@@ -115,7 +115,7 @@ export default function Matricular(){
              <InputMask
               mask="(99) 99999-9999"
               placeholder="(XX) XXXXX-XXXX">
-              <input className={styles.input} type='tel' name='phone' id='phone'/>
+              <input className={styles.input} type='tel' name='tel' id='tel'/>
             </InputMask> 
 
             <input placeholder="E-mail" className={styles.input} name='email' type='email' id="psEmail"></input>
