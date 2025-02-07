@@ -21,21 +21,21 @@ const modules = { // Quill editor
   };
 
   const formats = [ //Quill editor
-    "header",
+   // "header",
     "bold",
     "italic",
     "underline",
     "strike",
     "blockquote",
-    "list",
-    "bullet",
-    "link",
-    "color",
+  // "list",
+  //  "bullet",
+  // "link",
+  //  "color",
   //  "image",
   //  "background",
     "align",
     "size",
-    "font"
+  // "font"
   ];
 
 export function QuillEditor({ value, onChange, dirty, setDirty }) {

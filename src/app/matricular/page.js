@@ -24,7 +24,7 @@ export default function Matricular(){
     const [code, setCode] = useState("");
 
     const handleChange = (value, delta, source, editor) => {
-      console.log(value)
+      setCode(value)
     };
 
     function verifyEmail(email){
@@ -232,6 +232,5 @@ export default function Matricular(){
         </div>
         </form>
         </div>
-        
     )
 }
