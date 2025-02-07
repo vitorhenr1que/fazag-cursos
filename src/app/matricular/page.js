@@ -24,7 +24,7 @@ export default function Matricular(){
     const [code, setCode] = useState("");
 
     const handleChange = (value, delta, source, editor) => {
-      setCode(value)
+      console.log(value)
     };
 
     function verifyEmail(email){
@@ -215,7 +215,7 @@ export default function Matricular(){
                 
       <div className={styles.textDiv}>
       {console.log(code)}
-     <QuillEditor onChange={setCode} value={code} dirty={dirty} setDirty={setDirty}/>
+     <QuillEditor onChange={handleChange} value={code} dirty={dirty} setDirty={setDirty}/>
  
       </div>
                 
