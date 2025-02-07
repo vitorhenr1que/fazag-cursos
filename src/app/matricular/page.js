@@ -21,7 +21,7 @@ export default function Matricular(){
     const [ingresso, setIngresso] = useState('Vestibular Online')
     const date = new Date()
     const actualDate = date.toLocaleString('pt-BR', {year: 'numeric'})
-    const [code, setCode] = useState("");
+    const [code, setCode] = useState("<p> </p>");
 
     const handleChange = (value, delta, source, editor) => {
       setCode(value)
