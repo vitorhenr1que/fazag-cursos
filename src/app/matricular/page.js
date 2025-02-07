@@ -211,7 +211,7 @@ export default function Matricular(){
                 
       <div className={styles.textDiv}>
       
-     <QuillEditor onChange={handleChange} value={code} dirty={dirty} setDirty={setDirty}/>
+     <QuillEditor onChange={() => handleChange} value={code} dirty={dirty} setDirty={setDirty}/>
  
       </div>
                 
