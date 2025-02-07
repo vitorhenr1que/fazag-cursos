@@ -1,8 +1,9 @@
+'use client'
 import dynamic from "next/dynamic";
+import { useMemo } from "react";
 import "react-quill/dist/quill.snow.css"; // Estilos do Quill
 
 // Importação dinâmica para evitar problemas no SSR (erro de não conseguir encontrar o document.)
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const modules = { // Quill editor
     toolbar: [
@@ -37,6 +38,8 @@ const modules = { // Quill editor
   ];
 
 export function QuillEditor({ value, onChange, dirty, setDirty }) {
+  const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
+
     return (
         <ReactQuill
         onKeyDown={() => {if(dirty === false){setDirty(true)}}}

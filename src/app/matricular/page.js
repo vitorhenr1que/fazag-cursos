@@ -1,13 +1,12 @@
 'use client'
 import InputMask from 'react-input-mask';
 import styles from './style.module.scss'
-import { useState, useRef, useCallback, useMemo, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 //import { Editor } from '@tinymce/tinymce-react';
 import { Loading } from '../components/ModalMatriz/Loading'
 import { api } from '../services/api';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import ReactQuill from "react-quill";
 import {QuillEditor} from '../components/QuillEditor'
 
 export default function Matricular(){
@@ -24,14 +23,6 @@ export default function Matricular(){
     const actualDate = date.toLocaleString('pt-BR', {year: 'numeric'})
     const [code, setCode] = useState("");
 
-    const handleProcedureContentChange = (content, delta, source, editor) => { // Quill editor
-      setCode(content);
-      //let has_attribues = delta.ops[1].attributes || "";
-      //console.log(has_attribues);
-      //const cursorPosition = e.quill.getSelection().index;
-      // this.quill.insertText(cursorPosition, "★");
-      //this.quill.setSelection(cursorPosition + 1);
-    };
 
     function verifyEmail(email){
         const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
