@@ -63,15 +63,15 @@ export default function Matricular(){
 
 
         try {
-          // await api.post('inscricao/create', {
-          //   nome: data.nome,
-          //   city: data.city,
-          //   conheceu: data.conheceu,
-          //   course: data.course,
-          //   email: data.email,
-          //   ingresso: data.ingresso,
-          //   tel: data.tel
-          // })
+           await api.post('inscricao/create', {
+             nome: data.nome,
+             city: data.city,
+             conheceu: data.conheceu,
+             course: data.course,
+             email: data.email,
+             ingresso: data.ingresso,
+             tel: data.tel
+           })
 
           await axios.post('api/inscricao/email', {
             nome: data.nome,
