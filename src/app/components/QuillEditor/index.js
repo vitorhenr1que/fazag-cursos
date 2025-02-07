@@ -39,8 +39,7 @@ const modules = { // Quill editor
   ];
 
 export function QuillEditor({ value, onChange, dirty, setDirty }) {
-  const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
-
+  const ReactQuill = useMemo(() => dynamic(() => import('react-quill-new'), { ssr: false }),[]);
 
     return (
         <ReactQuill

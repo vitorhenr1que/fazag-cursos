@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mona-health/react-input-mask": "^3.0.3",
     "@prismicio/client": "^7.1.0",
     "@prismicio/next": "^1.3.3",
     "@radix-ui/react-dialog": "^1.0.4",
@@ -17,19 +18,21 @@
     "@types/react-input-mask": "^3.0.2",
     "axios": "^1.4.0",
     "eslint": "8.44.0",
-    "eslint-config-next": "13.4.9",
+    "eslint-config-next": "^15.1.6",
     "juice": "^11.0.0",
-    "next": "13.4.9",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-icons": "^4.10.1",
     "react-input-mask": "^2.0.4",
     "react-quill": "^2.0.0",
+    "react-quill-new": "^3.3.3",
     "sass": "^1.63.6",
     "slate-history": "^0.110.3"
   },
   "devDependencies": {
     "@types/node": "20.4.2",
-    "@types/react": "18.2.15"
+    "@types/react": "18.2.15",
+    "typescript": "5.7.3"
   }
 }

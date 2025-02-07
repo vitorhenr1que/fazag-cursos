@@ -1,13 +1,15 @@
 'use client'
-import InputMask from 'react-input-mask';
+import InputMask from '@mona-health/react-input-mask';
 import styles from './style.module.scss'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 //import { Editor } from '@tinymce/tinymce-react';
 import { Loading } from '../components/ModalMatriz/Loading'
 import { api } from '../services/api';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import {QuillEditor} from '../components/QuillEditor'
+import "react-quill/dist/quill.snow.css"; // Estilos do Quill
+
 
 export default function Matricular(){
 
@@ -21,10 +23,9 @@ export default function Matricular(){
     const actualDate = date.toLocaleString('pt-BR', {year: 'numeric'})
     const [code, setCode] = useState("<p> </p>");
 
-    const handleChange = (value, delta, source, editor) => {
+    function handleChange(value, delta, source, editor){
       setCode(value)
-    };
-
+    }
     function verifyEmail(email){
         const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
@@ -62,15 +63,15 @@ export default function Matricular(){
 
 
         try {
-          await api.post('inscricao/create', {
-            nome: data.nome,
-            city: data.city,
-            conheceu: data.conheceu,
-            course: data.course,
-            email: data.email,
-            ingresso: data.ingresso,
-            tel: data.tel
-          })
+          // await api.post('inscricao/create', {
+          //   nome: data.nome,
+          //   city: data.city,
+          //   conheceu: data.conheceu,
+          //   course: data.course,
+          //   email: data.email,
+          //   ingresso: data.ingresso,
+          //   tel: data.tel
+          // })
 
           await axios.post('api/inscricao/email', {
             nome: data.nome,
@@ -111,17 +112,19 @@ export default function Matricular(){
             <div className={styles.inputContainer}>
             <input placeholder="Nome Completo" className={styles.input} type='name' name='nome' id="psName"></input>
 
-            <InputMask className={`${styles.input}`} mask={"(99) 99999-9999"} maskChar="_" placeholder="Celular / Whatsapp" value={telephone} onChange={(e) => setTelephone(e.target.value)}>
-                {(inputProps) => <input {...inputProps} type="text" name="tel" id="psTelephone"   />}
-            </InputMask>
+             <InputMask
+              mask="(99) 99999-9999"
+              placeholder="(XX) XXXXX-XXXX">
+              <input className={styles.input} type='tel' name='phone' id='phone'/>
+            </InputMask> 
 
             <input placeholder="E-mail" className={styles.input} name='email' type='email' id="psEmail"></input>
 
             <input placeholder="Cidade" className={styles.input} name='city' type='text' id="psCity"></input>
             <div className={styles.containerSelect}>
                 <div className={styles.divSelect}>
-                    <select name='conheceu' id='psSelectOne' className={styles.select}>
-                        <option className={styles.optionOne} value="0" selected disabled>Como conheceu a FAZAG?</option>
+                    <select name='conheceu' defaultValue={"0"} id='psSelectOne' className={styles.select}>
+                        <option className={styles.optionOne} value="0" disabled>Como conheceu a FAZAG?</option>
                         <option value="Facebook">Facebook</option>
                         <option value="Instagram">Instagram</option>
                         <option value="Google">Google</option>
@@ -133,8 +136,8 @@ export default function Matricular(){
                     </select>
                 </div>
                 <div className={styles.divSelect}>
-                    <select name='ingresso' id='psSelectTwo' className={styles.select} onChange={(e) => {setIngresso(e.target.value)}}>
-                        <option value="0" className={styles.optionOne} selected disabled>Como deseja ingressar?</option>
+                    <select name='ingresso' defaultValue={"conheceu"} id='psSelectTwo' className={styles.select} onChange={(e) => {setIngresso(e.target.value)}}>
+                        <option value="0" className={styles.optionOne} disabled>Como deseja ingressar?</option>
                         <option value="Vestibular Online">Vestibular Online</option>
                         <option value="Nota do ENEM">Nota do ENEM</option>
                         <option value="Transferência Externa">Transferência Externa</option>
@@ -145,8 +148,8 @@ export default function Matricular(){
             <section>
 
             <div className={styles.divCourseSelect}>
-                    <select name='course' id='psSelectTwo' className={styles.selectCourse}>
-                        <option value="0" className={styles.optionOne} selected disabled>Selecione o curso desejado</option>
+                    <select name='course' id='psSelectTwo' className={styles.selectCourse} defaultValue={"Selecione o curso"}>
+                        
                         <option value="Administração">Administração</option>
                         <option value="Ciências Contábeis">Ciências Contábeis</option>
                         <option value="Educação Física (Bacharelado)">Educação Física (Bacharelado)</option>
@@ -210,8 +213,8 @@ export default function Matricular(){
               
                 
       <div className={styles.textDiv}>
-      
-     <QuillEditor onChange={() => handleChange} value={code} dirty={dirty} setDirty={setDirty}/>
+      {console.log(code)}
+     <QuillEditor onChange={setCode} value={code} dirty={dirty} setDirty={setDirty}/>
  
       </div>
                 
