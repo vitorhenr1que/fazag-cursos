@@ -23,6 +23,10 @@ export default function Matricular(){
     const actualDate = date.toLocaleString('pt-BR', {year: 'numeric'})
     const [code, setCode] = useState("");
 
+    const handleChange = (value, delta, source, editor) => {
+      console.log(value)
+     
+    };
 
     function verifyEmail(email){
         const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -211,8 +215,8 @@ export default function Matricular(){
               
                 
       <div className={styles.textDiv}>
-      {/*console.log(code)*/}
-     <QuillEditor onChange={setCode} value={code} dirty={dirty} setDirty={setDirty}/>
+      {console.log(code)}
+     <QuillEditor onChange={handleChange} value={code} dirty={dirty} setDirty={setDirty}/>
  
       </div>
                 

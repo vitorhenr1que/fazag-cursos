@@ -40,6 +40,7 @@ const modules = { // Quill editor
 export function QuillEditor({ value, onChange, dirty, setDirty }) {
   const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
 
+
     return (
         <ReactQuill
         onKeyDown={() => {if(dirty === false){setDirty(true)}}}
