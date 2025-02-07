@@ -14,8 +14,6 @@ export default function Matricular(){
     const [telephone, setTelephone] = useState()
     const [loading, setLoading] = useState(false)
     const [dirty, setDirty] = useState(false)
-    const [text, setText] = useState('')
-    const [value, setValue] = useState('<p>The quick brown fox jumps over the lazy dog</p>');
     //const editorRef = useRef(null)
     const route = useRouter()
     const [ingresso, setIngresso] = useState('Vestibular Online')
@@ -100,9 +98,7 @@ export default function Matricular(){
       }
 
 
-      useEffect(() => {
-        
-      }, [])
+   
     return (
         
         <div className={styles.container}>
@@ -214,7 +210,7 @@ export default function Matricular(){
               
                 
       <div className={styles.textDiv}>
-      {console.log(code)}
+      
      <QuillEditor onChange={handleChange} value={code} dirty={dirty} setDirty={setDirty}/>
  
       </div>
