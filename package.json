@@ -23,7 +23,9 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "react-input-mask": "^2.0.4",
-    "sass": "^1.63.6"
+    "react-quill": "^2.0.0",
+    "sass": "^1.63.6",
+    "slate-history": "^0.110.3"
   },
   "devDependencies": {
     "@types/node": "20.4.2",

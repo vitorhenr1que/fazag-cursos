@@ -1,12 +1,13 @@
 'use client'
 import InputMask from 'react-input-mask';
 import styles from './style.module.scss'
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback, useMemo, useEffect } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { Loading } from '../components/ModalMatriz/Loading'
 import { api } from '../services/api';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import ReactQuill from "react-quill";
 
 export default function Matricular(){
 
@@ -20,7 +21,47 @@ export default function Matricular(){
     const [ingresso, setIngresso] = useState('Vestibular Online')
     const date = new Date()
     const actualDate = date.toLocaleString('pt-BR', {year: 'numeric'})
+    const [code, setCode] = useState("");
 
+    const handleProcedureContentChange = (content, delta, source, editor) => { // Quill editor
+      setCode(content);
+      //let has_attribues = delta.ops[1].attributes || "";
+      //console.log(has_attribues);
+      //const cursorPosition = e.quill.getSelection().index;
+      // this.quill.insertText(cursorPosition, "★");
+      //this.quill.setSelection(cursorPosition + 1);
+    };
+    const modules = { // Quill editor
+      toolbar: [
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        ["bold", "italic", "underline", "strike", "blockquote"],
+        [{ size: [] }],
+        [{ font: [] }],
+        [{ align: ["right", "center", "justify"] }],
+        [{ list: "ordered" }, { list: "bullet" }],
+        ["link", "image"],
+        [{ color: ["red", "#785412"] }],
+        [{ background: ["red", "#785412"] }]
+      ]
+    };
+  
+    const formats = [ //Quill editor
+      "header",
+      "bold",
+      "italic",
+      "underline",
+      "strike",
+      "blockquote",
+      "list",
+      "bullet",
+      "link",
+      "color",
+      "image",
+      "background",
+      "align",
+      "size",
+      "font"
+    ];
     function verifyEmail(email){
         const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
@@ -76,7 +117,8 @@ export default function Matricular(){
             email: data.email,
             ingresso: data.ingresso,
             tel: data.tel,
-            text: formIngresso === 'Vestibular Online' ? editorRef.current.getContent() : "<p> </p>"
+            text: code
+            //Para o TinyMCE - text: formIngresso === 'Vestibular Online' ? editorRef.current.getContent() : "<p> </p>"
           })
 
           
@@ -93,7 +135,9 @@ export default function Matricular(){
       }
 
 
-
+      useEffect(() => {
+        
+      }, [])
     return (
         
         <div className={styles.container}>
@@ -181,8 +225,8 @@ export default function Matricular(){
              <p>Com base nos conhecimentos construídos ao longo de sua formação, redija texto dissertativo- argumentativo em modalidade escrita formal da língua portuguesa sobre o tema “Exclusão Social”, apresentando proposta de intervenção que respeite os direitos humanos. Selecione, organize e relacione, de forma coerente e coesa, argumentos e fatos para defesa de seu ponto de vista.</p>
              </section>
             
-            <Editor
-                apiKey='22pr667mh5ij5qa25161gq7yl57n0ke2hscpzgaq2fqbu1q'
+            {/* <Editor
+                apiKey='21293lyhysv63t5z85qew419tn8gr9nqgf2prhu3hg0y7xvi'
                 onInit={(evt, editor) => ingresso === "Vestibular Online" ? editorRef.current = editor : editorRef.current = "<p> </p>"}
                 initialValue="<p>Faça a sua redação aqui.</p>"
                 onDirty={() => setDirty(true)}
@@ -200,7 +244,24 @@ export default function Matricular(){
                   'removeformat | help',
                   content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                 }}
-              />
+              /> */}
+
+              
+                
+      <div className={styles.textDiv}>
+      {/*console.log(code)*/}
+      <ReactQuill
+        onKeyDown={() => {if(dirty === false){setDirty(true)}}}
+        theme="snow"
+        modules={modules}
+        formats={formats}
+        value={code}
+        onChange={handleProcedureContentChange}
+        className={styles.reactQuill}
+        placeholder='Digite sua redação aqui...'
+      />
+      </div>
+                
               </>}
             {/* Verificação do Botão desabilitado da redação ou habilitado de outras formas */}                                  
             { ingresso === 'Vestibular Online' ? 
