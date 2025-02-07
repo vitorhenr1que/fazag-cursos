@@ -2,12 +2,13 @@
 import InputMask from 'react-input-mask';
 import styles from './style.module.scss'
 import { useState, useRef, useCallback, useMemo, useEffect } from 'react';
-import { Editor } from '@tinymce/tinymce-react';
+//import { Editor } from '@tinymce/tinymce-react';
 import { Loading } from '../components/ModalMatriz/Loading'
 import { api } from '../services/api';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import ReactQuill from "react-quill";
+import {QuillEditor} from '../components/QuillEditor'
 
 export default function Matricular(){
 
@@ -16,7 +17,7 @@ export default function Matricular(){
     const [dirty, setDirty] = useState(false)
     const [text, setText] = useState('')
     const [value, setValue] = useState('<p>The quick brown fox jumps over the lazy dog</p>');
-    const editorRef = useRef(null)
+    //const editorRef = useRef(null)
     const route = useRouter()
     const [ingresso, setIngresso] = useState('Vestibular Online')
     const date = new Date()
@@ -31,37 +32,7 @@ export default function Matricular(){
       // this.quill.insertText(cursorPosition, "★");
       //this.quill.setSelection(cursorPosition + 1);
     };
-    const modules = { // Quill editor
-      toolbar: [
-        [{ header: [1, 2, 3, 4, 5, 6, false] }],
-        ["bold", "italic", "underline", "strike", "blockquote"],
-        [{ size: [] }],
-        [{ font: [] }],
-        [{ align: ["right", "center", "justify"] }],
-        [{ list: "ordered" }, { list: "bullet" }],
-        ["link", "image"],
-        [{ color: ["red", "#785412"] }],
-        [{ background: ["red", "#785412"] }]
-      ]
-    };
-  
-    const formats = [ //Quill editor
-      "header",
-      "bold",
-      "italic",
-      "underline",
-      "strike",
-      "blockquote",
-      "list",
-      "bullet",
-      "link",
-      "color",
-      "image",
-      "background",
-      "align",
-      "size",
-      "font"
-    ];
+
     function verifyEmail(email){
         const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
@@ -77,13 +48,13 @@ export default function Matricular(){
         e.preventDefault()
         setLoading(true)
 
-          if (editorRef.current) {
-              const content = editorRef.current.getContent();
-              setDirty(false);
-              editorRef.current.setDirty(false);
-              // an application would save the editor content to the server here
-              console.log(content);
-            }
+          // if (editorRef.current) {  
+          //     const content = editorRef.current.getContent();
+          //     setDirty(false);
+          //     editorRef.current.setDirty(false);
+          //     // an application would save the editor content to the server here
+          //     console.log(content);
+          //   }
       
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
@@ -250,16 +221,8 @@ export default function Matricular(){
                 
       <div className={styles.textDiv}>
       {/*console.log(code)*/}
-      <ReactQuill
-        onKeyDown={() => {if(dirty === false){setDirty(true)}}}
-        theme="snow"
-        modules={modules}
-        formats={formats}
-        value={code}
-        onChange={handleProcedureContentChange}
-        className={styles.reactQuill}
-        placeholder='Digite sua redação aqui...'
-      />
+     <QuillEditor onChange={setCode} value={code} dirty={dirty} setDirty={setDirty}/>
+ 
       </div>
                 
               </>}
