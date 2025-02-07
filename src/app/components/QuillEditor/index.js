@@ -7,15 +7,16 @@ import "react-quill/dist/quill.snow.css"; // Estilos do Quill
 
 const modules = { // Quill editor
     toolbar: [
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
       [{ size: [] }],
-      [{ font: [] }],
+    //  [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      
+   //   [{ font: [] }],
       [{ align: ["right", "center", "justify"] }],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "image"],
-      [{ color: ["red", "#785412"] }],
-      [{ background: ["red", "#785412"] }]
+   //   [{ list: "ordered" }, { list: "bullet" }],
+   //   ["link", "image"],
+   //  [{ color: ["red", "#785412"] }],
+    //  [{ background: ["red", "#785412"] }]
     ]
   };
 
@@ -30,8 +31,8 @@ const modules = { // Quill editor
     "bullet",
     "link",
     "color",
-    "image",
-    "background",
+  //  "image",
+  //  "background",
     "align",
     "size",
     "font"
