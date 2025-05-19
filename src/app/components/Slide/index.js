@@ -27,9 +27,9 @@ export function Slide(){
     <div className={`carousel-item active ${styles.imgCarouselDiv}`}>
       <Image src={fazag} className="d-block w-100" objectFit='cover'  fill quality={100}  alt="..."/>
     </div>
-    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
+    {/* <div className={`carousel-item ${styles.imgCarouselDiv}`}>
       <Image src={aula02} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
-    </div>
+    </div> */}
     <div className={`carousel-item  ${styles.imgCarouselDiv}`}>
       <Image src={lab05} className="d-block w-100" objectFit='cover'  fill quality={100}  alt="..."/>
     </div>

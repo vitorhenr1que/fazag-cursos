@@ -12,7 +12,10 @@ export default function Home() {
         <div className={styles.mainTextContainer}>
 
           <div className={styles.textDiv}>
-            <h1 className={`${oswald.className} ${styles.divh1}`}><span className={styles.spanBlue}>JUNTE-SE A NÓS!</span><span>INDIQUE UM AMIGO E GANHE 10% DE DESCONTO DURANTE TODO O SEMESTRE!</span></h1>
+            <div className={styles.ofertaContainer}>
+              <span>OFERTA LIMITADA!!!</span>
+            </div>
+            <h1 className={`${oswald.className} ${styles.divh1}`}><span className={styles.spanBlue}>1ª MENSALIDADE GRÁTIS</span><span>VOCÊ COMEÇA A PAGAR SÓ EM JULHO!</span></h1>
             <span className={styles.spanValue}>Cursos a partir de R$ 361,20/mês</span>
 
           <div className={styles.divButtons}>
