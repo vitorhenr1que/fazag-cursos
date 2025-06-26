@@ -6,9 +6,9 @@ import "react-quill/dist/quill.snow.css"; // Estilos do Quill
 
 export async function POST(request: Request) {
 
-    const { nome, email, tel, course, ingresso, conheceu, city, text } = await request.json()
+    const { nome, email, tel, course, ingresso, conheceu, city, bolsa, text } = await request.json()
 
-    console.log(nome, email, tel, course, ingresso, conheceu, city)
+    console.log(nome, email, tel, course, ingresso, conheceu, city, bolsa)
     const htmlInline = juice(text); //converter as classes ql-align-text em inline
     if(htmlInline === undefined){
         return Response.json({Erro: 'HTMLinLine é UNDEFINED!!'}, {status: 505})
@@ -24,8 +24,9 @@ export async function POST(request: Request) {
         ingresso,
         conheceu,
         city,
+        bolsa,
         text: htmlInline
     })
 
-       return NextResponse.json({nome, email, tel, course, ingresso, conheceu, city})
+       return NextResponse.json({nome, email, tel, course, ingresso, conheceu, city, bolsa})
 }

@@ -70,7 +70,8 @@ export default function Matricular(){
              course: data.course,
              email: data.email,
              ingresso: data.ingresso,
-             tel: data.tel
+             tel: data.tel,
+             bolsa: data.bolsa
            })
 
           await axios.post('api/inscricao/email', {
@@ -81,6 +82,7 @@ export default function Matricular(){
             email: data.email,
             ingresso: data.ingresso,
             tel: data.tel,
+            bolsa: data.bolsa,
             text: code
             //Para o TinyMCE - text: formIngresso === 'Vestibular Online' ? editorRef.current.getContent() : "<p> </p>"
           })
@@ -136,7 +138,7 @@ export default function Matricular(){
                     </select>
                 </div>
                 <div className={styles.divSelect}>
-                    <select name='ingresso' defaultValue={"conheceu"} id='psSelectTwo' className={styles.select} onChange={(e) => {setIngresso(e.target.value)}}>
+                    <select name='ingresso' defaultValue={"0"} id='psSelectTwo' className={styles.select} onChange={(e) => {setIngresso(e.target.value)}}>
                         <option value="0" className={styles.optionOne} disabled>Como deseja ingressar?</option>
                         <option value="Vestibular Online">Vestibular Online</option>
                         <option value="Nota do ENEM">Nota do ENEM</option>
@@ -148,8 +150,8 @@ export default function Matricular(){
             <section>
 
             <div className={styles.divCourseSelect}>
-                    <select name='course' id='psSelectTwo' className={styles.selectCourse} defaultValue={"Selecione o curso"}>
-                        
+                    <select name='course' id='psSelectTwo' className={styles.selectCourse} defaultValue={"0"}>
+                        <option className={styles.optionOne} value="0" disabled>Selecione o Curso</option>
                         <option value="Administração">Administração</option>
                         <option value="Ciências Contábeis">Ciências Contábeis</option>
                         <option value="Educação Física (Bacharelado)">Educação Física (Bacharelado)</option>
@@ -165,8 +167,21 @@ export default function Matricular(){
                         <option value="Serviço Social">Serviço Social</option>
                     </select>
                 </div>
-
             </section>
+
+                <div className={styles.divCourseSelect}>
+                  
+                    <select name='bolsa' id='psBolsa' className={styles.selectCourse} defaultValue={"0"}>
+                        <option className={styles.optionOne} value="0" disabled>Selecione o Parceiro de Bolsa</option>
+                        <option value="Motiva Bolsas">Motiva Bolsas</option>
+                        <option value="Educa Mais Brasil">Educa Mais Brasil</option>
+                        <option value="Quero Bolsa">Quero Bolsa</option>
+                        <option value="Bolsa TRANSformar">Bolsa TRANSformar</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+
             <div>
                 
                

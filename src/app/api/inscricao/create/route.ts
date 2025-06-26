@@ -6,10 +6,10 @@ import { api } from '../../../services/api';
 
 export async function POST(request: Request) {
 
-    const { nome, email, tel, course, ingresso, conheceu, city } = await request.json()
+    const { nome, email, tel, course, ingresso, conheceu, city, bolsa } = await request.json()
 
 
-    console.log ('DENTRO DA REQUISIÇÃO', nome, email, tel, course, ingresso, conheceu, city)
+    console.log ('DENTRO DA REQUISIÇÃO', nome, email, tel, course, ingresso, conheceu, city, bolsa)
     
     console.log('Chegou na requisição INSCRIÇÃO > CREATE !!')
 
@@ -20,8 +20,9 @@ export async function POST(request: Request) {
         course,
         ingresso,
         conheceu,
-        city
+        city,
+        bolsa
     })
 
-       return NextResponse.json({nome, email, tel, course, ingresso, conheceu, city})
+       return NextResponse.json({nome, email, tel, course, ingresso, conheceu, city, bolsa})
 }
