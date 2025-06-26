@@ -164,7 +164,7 @@ export default function Matricular(){
                         <option value="Nutrição">Nutrição</option>
                         <option value="Pedagogia">Pedagogia</option>
                         <option value="Psicologia">Psicologia</option>
-                        <option value="Serviço Social">Serviço Social</option>
+                        {/* <option value="Serviço Social">Serviço Social</option> */}
                     </select>
                 </div>
             </section>
