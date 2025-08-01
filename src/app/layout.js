@@ -19,11 +19,16 @@ export const oswald = Oswald({
 
 export const metadata = {
   title: 'INICIO | Faculdade Zacarias de Góes',
-  description: 'Faculdade em Valença - BA',
-  keywords: 'FAZAG, Enem, Graduação, Psicologia', 
-  icons: {
-    icon: '/icon.png'
-  }
+   description: "Faculdade em Valença - BA",
+  metadataBase: new URL("https://matriculas.fazag.edu.br"),
+  openGraph: {
+    title: "Matrículas Abertas - FAZAG",
+    description: "Garanta sua vaga nos cursos da FAZAG! Matrículas online de forma fácil e rápida.",
+    url: "https://matriculas.fazag.edu.br",
+    siteName: "FAZAG",
+    locale: "pt_BR",
+    type: "website",
+  },
 }
 
 
