@@ -22,7 +22,7 @@ export const metadata = {
    description: "Faculdade em Valença - BA",
   metadataBase: new URL("https://matriculas.fazag.edu.br"),
   openGraph: {
-    title: "Matrículas Abertas - FAZAG",
+    title: "Inscrições Abertas - FAZAG",
     description: "Garanta sua vaga nos cursos da FAZAG! Matrículas online de forma fácil e rápida.",
     url: "https://matriculas.fazag.edu.br",
     siteName: "FAZAG",
