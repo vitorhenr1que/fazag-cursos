@@ -4,7 +4,7 @@ import styles from './style.module.scss'
 export default function Matriculas() {
     return (
         <div className={styles.container}>
-            <h1>Inscrições FAZAG {`${new Date().getFullYear()}`}</h1>
+            <h1>Inscrições FAZAG 2026</h1>
 
             <div className={styles.containerLinks}>
                 <h3>Formas de Ingresso</h3>
