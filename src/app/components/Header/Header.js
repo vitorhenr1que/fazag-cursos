@@ -26,7 +26,7 @@ export function Header(){
                 </ul>
 
                 <button className={styles.button}>
-                    <Link href={'/matriculas'}>MATRICULE-SE</Link>
+                    <Link href={'/matricular'}>MATRICULE-SE</Link>
                 </button>
 
             </div>
