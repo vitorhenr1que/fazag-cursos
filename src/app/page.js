@@ -24,7 +24,7 @@ export default function Home() {
               <button>Conhecer as graduações</button>
             </Link>
             
-            <Link href={'/matricular'} className={styles.link}>Matricular agora</Link>
+            <Link href={'/matriculas'} className={styles.link}>Matricular agora</Link>
           </div>
 
           </div>
