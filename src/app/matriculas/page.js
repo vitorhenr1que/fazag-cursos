@@ -9,10 +9,10 @@ export default function Matriculas() {
             <div className={styles.containerLinks}>
                 <h3>Selecione sua Forma de Ingresso:</h3>
                 <div className={styles.linkContainer}>
-                <Link className={styles.link} target="_blank" href={'https://portais.qualinfonet.com.br/fazag/portalcandidato.vestibular.php?acao=directclean&vest_codigo=20261A'}>Vestibular Online</Link>
-                <Link className={styles.link} target="_blank" href={'https://portais.qualinfonet.com.br/fazag/portalcandidato.vestibular.php?acao=directclean&vest_codigo=20261E'}>Nota do ENEM</Link>
-                <Link className={styles.link} target="_blank" href={'https://portais.qualinfonet.com.br/fazag/portalcandidato.vestibular.php?acao=directclean&vest_codigo=20261T'}>Transferência Externa</Link>
-                <Link className={styles.link} target="_blank" href={'https://portais.qualinfonet.com.br/fazag/portalcandidato.vestibular.php?acao=directclean&vest_codigo=20261S'}>Segunda Graduação</Link>
+                <Link className={styles.link} target="_blank" href={'https://portais.qualinfonet.com.br/fazag/portalcandidato.vestibular.php?acao=directclean&vest_codigo=20262A'}>Vestibular Online</Link>
+                <Link className={styles.link} target="_blank" href={'https://portais.qualinfonet.com.br/fazag/portalcandidato.vestibular.php?acao=directclean&vest_codigo=20262E'}>Nota do ENEM</Link>
+                <Link className={styles.link} target="_blank" href={'https://portais.qualinfonet.com.br/fazag/portalcandidato.vestibular.php?acao=directclean&vest_codigo=20262T'}>Transferência Externa</Link>
+                <Link className={styles.link} target="_blank" href={'https://portais.qualinfonet.com.br/fazag/portalcandidato.vestibular.php?acao=directclean&vest_codigo=20262S'}>Segunda Graduação</Link>
                 </div>
                 <div className={styles.linkContinueContainer}>
                 <span>Já escolheu sua Forma de Ingresso?</span>
