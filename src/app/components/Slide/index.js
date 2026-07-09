@@ -1,72 +1,48 @@
-import styles from './style.module.scss'
 import Image from "next/image";
 import fazag from '../../../../public/fazag.png'
-import aula from '../../../../public/photos/labaula01.jpg'
-import labcolacao from '../../../../public/photos/labcolacao.jpg'
+import biblioteca from '../../../../public/photos/biblioteca02.jpg'
 import colacao from '../../../../public/photos/colacao.jpg'
-import turmafarmacia from '../../../../public/photos/turmafarmacia.jpg'
-import biblioteca from '../../../../public/photos/biblioteca.jpg'
-import aula02 from '../../../../public/photos/labaula03.jpeg'
-import lab01 from '../../../../public/photos/lab01.jpg'
-import lab02 from '../../../../public/photos/lab02.jpeg'
-import lab03 from '../../../../public/photos/lab03.jpeg'
-import lab04 from '../../../../public/photos/lab04.jpeg'
 import lab05 from '../../../../public/photos/lab05.jpg'
 import lab06 from '../../../../public/photos/lab06.jpg'
-import biblioteca02 from '../../../../public/photos/biblioteca02.jpg'
+import styles from './style.module.scss'
 
+const photos = [
+  { src: fazag, alt: 'Prédio da FAZAG', active: true },
+  { src: lab05, alt: 'Laboratório da FAZAG' },
+  { src: lab06, alt: 'Aula prática em laboratório da FAZAG' },
+  { src: biblioteca, alt: 'Biblioteca da FAZAG' },
+  { src: colacao, alt: 'Cerimônia de colação de grau da FAZAG' },
+]
 
 export function Slide(){
     return (
-        <div className={styles.slideContainer}>
-            <p className={styles.titleCarousel}>Confira algumas fotos e eventos da FAZAG</p>
-<div id="carouselExampleFade" className="carousel slide carousel-fade">
-  <div className={`carousel-inner ${styles.carouselDiv}`} >
-    <div className={`carousel-item active ${styles.imgCarouselDiv}`}>
-      <Image src={fazag} className="d-block w-100" objectFit='cover'  fill quality={100}  alt="..."/>
-    </div>
-    {/* <div className={`carousel-item ${styles.imgCarouselDiv}`}>
-      <Image src={aula02} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
-    </div> */}
-    <div className={`carousel-item  ${styles.imgCarouselDiv}`}>
-      <Image src={lab05} className="d-block w-100" objectFit='cover'  fill quality={100}  alt="..."/>
-    </div>
-    <div className={`carousel-item  ${styles.imgCarouselDiv}`}>
-      <Image src={lab06} className="d-block w-100" objectFit='cover'  fill quality={100}  alt="..."/>
-    </div>
-    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
-      <Image src={aula} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
-    </div>
-    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
-      <Image src={labcolacao} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
-    </div>
-    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
-      <Image src={colacao} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
-    </div>
-    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
-      <Image src={lab03} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
-    </div>
-    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
-      <Image src={lab01} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
-    </div>
-    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
-      <Image src={turmafarmacia} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
-    </div>
-    <div className={`carousel-item ${styles.imgCarouselDiv}`}>
-      <Image src={biblioteca02} className="d-block w-100" objectFit='cover' fill quality={100} alt="..."/>
-    </div>
-
-  </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
-</div>
-        </div>
-        
+        <section className={styles.slideContainer} aria-labelledby="fotos-fazag">
+            <p className={styles.titleCarousel} id="fotos-fazag">Confira ambientes e momentos da FAZAG</p>
+            <div id="carouselExampleFade" className="carousel slide carousel-fade">
+                <div className={`carousel-inner ${styles.carouselDiv}`} >
+                    {photos.map((photo) => (
+                        <div className={`carousel-item ${photo.active ? 'active' : ''} ${styles.imgCarouselDiv}`} key={photo.alt}>
+                            <Image
+                                src={photo.src}
+                                className="d-block w-100"
+                                fill
+                                quality={78}
+                                sizes="(max-width: 768px) 100vw, 1180px"
+                                style={{ objectFit: 'cover' }}
+                                alt={photo.alt}
+                            />
+                        </div>
+                    ))}
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Anterior</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </section>
     )
 }

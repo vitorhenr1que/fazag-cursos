@@ -1,15 +1,9 @@
 
-import Image from 'next/image'
-import psicologia from '../../../../public/courses/psicologia.jpg'
 import styles from './style.module.scss'
-import { metadata, oswald } from '../../layout'
+import { oswald } from '../../fonts'
 import { InfoCourse } from '../../components/InfoCourse'
-import axios from 'axios'
 import { getClient } from '../../services/prismic'
 import { PrismicNextImage } from '@prismicio/next'
-import Link from 'next/link'
-import { PiWhatsappLogo } from 'react-icons/pi'
-import { LiaWhatsapp } from 'react-icons/lia'
 import {Vagas} from '../../components/Vagas/Vagas'
 
 export async function generateMetadata({params}){
@@ -31,7 +25,6 @@ export default async function Cursos({params}){
         const client = getClient()
         const response = await client.getByUID('courses', params.curso, {})
         const course = response.data
-        const img = course.image.url.split('?')
         
 
     return(

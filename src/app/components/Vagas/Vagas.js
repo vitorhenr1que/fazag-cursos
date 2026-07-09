@@ -5,7 +5,7 @@ import styles from './style.module.scss'
 import { LiaWhatsapp } from "react-icons/lia"
 import axios from "axios"
 import { api } from "../../services/api"
-import { use, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 function RandomNumbers(){
     return Math.floor(Math.random() * 23)
@@ -17,6 +17,7 @@ export function Vagas({ course }){
     const [courseCorrect, setCourseCorrect] = useState(course)
     const [numberVencace, setNumberVecance] = useState(40)
     const [responseApi, setResponseApi] = useState("")
+    const vacanciesReady = responseApi !== "" && numberVencace !== undefined
 
     useEffect(() => {
 
@@ -89,7 +90,16 @@ export function Vagas({ course }){
             Entre em contato
         </button>
         </Link>
-        <span style={{textAlign: "center"}}>{numberVencace ? numberVencace : "20"} vagas restantes</span>
+        <div className={styles.vacanciesStatus} aria-live="polite">
+            {vacanciesReady ? (
+                <span className={styles.vacanciesCount}>{numberVencace ? numberVencace : "20"} vagas restantes</span>
+            ) : (
+                <span className={styles.vacanciesLoading}>
+                    <span className={styles.loadingDot}></span>
+                    Consultando vagas disponíveis
+                </span>
+            )}
+        </div>
         
         
         </>

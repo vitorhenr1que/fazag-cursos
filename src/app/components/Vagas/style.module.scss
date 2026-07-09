@@ -24,6 +24,62 @@
     }
 }
 
+.vacanciesStatus {
+    display: flex;
+    justify-content: center;
+    min-height: 28px;
+    margin-top: .35rem;
+    text-align: center;
+}
+
+.vacanciesCount,
+.vacanciesLoading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .35rem .85rem;
+    border-radius: 999px;
+    font-size: .95rem;
+    font-weight: 700;
+}
+
+.vacanciesCount {
+    background: rgba(248, 195, 119, .22);
+    color: var(--brand-main);
+}
+
+.vacanciesLoading {
+    background: rgba(255, 255, 255, .7);
+    color: var(--text-soft);
+}
+
+.loadingDot {
+    width: .55rem;
+    height: .55rem;
+    border-radius: 50%;
+    background: var(--cta);
+    animation: pulseVacancies 1s ease-in-out infinite;
+}
+
+@keyframes pulseVacancies {
+    0%, 100% {
+        opacity: .35;
+        transform: scale(.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loadingDot {
+        animation: none;
+    }
+}
+
 
 
 @media(max-width: 479px){
@@ -45,5 +101,10 @@
     }
     .inscrevaSeButton{
         font-size: .8rem !important;
+    }
+
+    .vacanciesCount,
+    .vacanciesLoading {
+        font-size: .85rem;
     }
 }

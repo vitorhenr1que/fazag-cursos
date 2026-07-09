@@ -1,20 +1,9 @@
 
-import { Courses } from './components/Courses'
-import { FiveReasons } from './components/FiveReasons'
 import { Header } from './components/Header/Header'
 import Script from 'next/script'
 import './globals.scss'
-import { Inter, Oswald } from 'next/font/google'
-import { Slide } from './components/Slide'
 import Image from 'next/image'
-
-
-export const inter = Inter({ weight: ['400','500','600','700','800'], subsets: ['latin'] })
-
-export const oswald = Oswald({
-  weight: ['600','700',],
-  subsets: ['latin']
-})
+import { inter } from './fonts'
 
 
 export const metadata = {
@@ -70,9 +59,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <body className={inter.className}>
           <Header/>
           {children}
-          <FiveReasons/>
-          <Slide/>
-          <Courses/>
           
           <Script id='bootstrap-id' src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossOrigin="anonymous"></Script>
           <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM}`} height="0" width="0" style={{display:'none', visibility:'hidden'}}></iframe></noscript>

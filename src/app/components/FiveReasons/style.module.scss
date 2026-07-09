@@ -1,42 +1,242 @@
-.trueContainer{
-    background-color: var(--white);
-    .containerReasons{
-        h2 {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 600;
-        }
+.trueContainer {
+    background: #fff;
+    color: var(--text-main);
+    padding: 7.5rem 0;
+
+    .containerReasons {
         display: flex;
         flex-direction: column;
-        gap: 3rem;
-        padding: 1rem;
+        gap: 4rem;
+        margin-top: 0;
     }
 }
 
-
-.divIcons{
+.heading {
+    max-width: 780px;
     display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    span {
+        color: var(--brand-main);
+        font-size: .8rem;
+        font-weight: 800;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        color: var(--brand-main);
+        font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+        line-height: 1.05;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    p {
+        color: var(--text-soft);
+        font-size: 1.15rem;
+        line-height: 1.65;
+        margin: 0;
+    }
+}
+
+// BENTO GRID SYSTEM
+.reasonsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.reasonCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.2rem;
+    border: 1px solid rgba(157, 108, 101, .16);
+    border-radius: 20px;
+    background: var(--page-bg);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+
+    &:hover {
+        transform: translateY(-5px);
+        background: #fff;
+        border-color: rgba(157, 108, 101, 0.35);
+        box-shadow: 0 24px 50px rgba(76, 48, 44, 0.06);
+    }
+}
+
+// Bento Item 1: Wide Card
+.reasonCard:nth-child(1) {
+    grid-column: span 2;
+    flex-direction: row;
     align-items: center;
     gap: 2rem;
-    .iconsCircle{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
+}
+
+// Bento Item 3: Highlight Brand Card
+.reasonCard:nth-child(3) {
+    background: linear-gradient(135deg, var(--brand-main) 0%, #7d504a 100%);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(76, 48, 44, 0.12);
+
+    h3 {
+        color: var(--accent);
     }
-    .iconsParagraph{
-        font-size: 1.5rem;
-        font-weight: 500;
+
+    p {
+        color: rgba(255, 255, 255, 0.88);
+    }
+
+    .iconsCircle {
+        background: #fff;
+        color: var(--brand-main);
+        box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, #a7756e 0%, #895851 100%);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 24px 60px rgba(76, 48, 44, 0.2);
     }
 }
 
-@media(max-width: 430px){
-    .containerReasons{
-        h2{
-            font-size: 2rem !important;
+.iconsCircle {
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: var(--accent);
+    color: var(--brand-main);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(248, 195, 119, 0.18);
+
+    svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+.reasonCard:hover .iconsCircle {
+    background: var(--cta);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(194, 30, 124, 0.25);
+    transform: scale(1.05);
+}
+
+.reasonCard:nth-child(3):hover .iconsCircle {
+    background: var(--accent);
+    color: var(--brand-main);
+    box-shadow: 0 6px 16px rgba(248, 195, 119, 0.25);
+}
+
+.iconsParagraph {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h3 {
+        color: var(--brand-main);
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    p {
+        color: var(--text-soft);
+        line-height: 1.6;
+        margin: 0;
+        font-size: 1rem;
+    }
+}
+
+@media(max-width: 980px) {
+    .reasonsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .reasonCard:nth-child(1) {
+        grid-column: span 2;
+    }
+}
+
+@media(max-width: 768px) {
+    .trueContainer {
+        padding: 3.5rem 0;
+    }
+
+    .containerReasons {
+        width: min(100% - 1rem, 1180px) !important;
+        gap: 1.5rem !important;
+    }
+
+    .heading {
+        text-align: center;
+        align-items: center;
+
+        h2 {
+            font-size: clamp(1.8rem, 8vw, 2.35rem);
         }
+
         p {
-            font-size: 1.2rem;
+            font-size: 1rem;
+            line-height: 1.55;
+        }
+    }
+
+    .reasonsGrid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .reasonCard:nth-child(1) {
+        grid-column: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+}
+
+@media(max-width: 520px) {
+    .reasonCard {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.15rem;
+        border-radius: 8px;
+    }
+
+    .reasonCard:nth-child(1) {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .iconsCircle {
+        flex-basis: 46px;
+        width: 46px;
+        height: 46px;
+        border-radius: 8px;
+
+        svg {
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    .iconsParagraph {
+        h3 {
+            font-size: 1.05rem;
+        }
+
+        p {
+            font-size: 0.94rem;
+            line-height: 1.45;
         }
     }
 }

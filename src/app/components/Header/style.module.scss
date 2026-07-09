@@ -4,7 +4,9 @@
     align-items: center;
     padding: 1rem;
     gap: 1rem;
-    height: 15vh;
+    min-height: 96px;
+    background: var(--brand-main);
+    box-shadow: 0 10px 30px rgba(76, 48, 44, .12);
     .headerContainer{
         display: flex;
         align-items: center;
@@ -33,32 +35,30 @@
             }
             li:hover {
                 a {
-                    color: var(--blue);
+                    color: var(--accent);
                     transition: .2s;
                 }
             }
         }
         .button {
-            flex: 0.8;
-            padding: 0.5rem;
-            background-color: white;
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0.5rem 1.15rem;
+            background-color: var(--cta);
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            
-            
-            a{
-                font-size: .8rem;
-                font-weight: 600;
-                text-decoration: none;
-                color: var(--blue-primary);
-            }
+            font-size: .8rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #fff;
         }
         .button:hover{
-            a {
-                color: var(--blue);
-                transition: .2s;
-            }
+            color: #fff;
+            transition: .2s;
         }
     }
    
@@ -71,6 +71,15 @@
   }
 
   @media(max-width: 850px){
+    .nav {
+        min-height: 82px;
+    }
+
+    .headerContainer {
+        width: 92% !important;
+        gap: 1rem !important;
+    }
+
     .divImg{
         a {
             display: flex;
@@ -82,5 +91,12 @@
                 height: 57px;
             }
         }
+    }
+  }
+
+  @media(max-width: 430px){
+    .button {
+        padding: .55rem .85rem !important;
+        font-size: .72rem !important;
     }
   }

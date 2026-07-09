@@ -1,33 +1,35 @@
 import Image from "next/image"
+import Link from "next/link"
 import logobranca from '../../../../public/logobranca.png'
 import styles from './style.module.scss'
-import Link from "next/link"
+
+const whatsappLink = 'https://api.whatsapp.com/send?phone=5575981048077&text=Ol%C3%A1,%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas'
 
 export function Header(){
     return (
         <header>
-        <nav className={styles.nav}>
+        <nav className={styles.nav} aria-label="Navegação principal">
             <div className={styles.headerContainer}>
 
                 <div className={styles.divImg}>
-                    <Link href={'/'}><Image src={logobranca} className={styles.logoImg} alt="logo" width={200} /></Link>
+                    <Link href={'/'} aria-label="Ir para a página inicial">
+                        <Image src={logobranca} className={styles.logoImg} alt="FAZAG" width={200} />
+                    </Link>
                 </div>
 
                 <ul className={styles.ul}>
                     <li>
-                        <Link href={'/'}>INICIO</Link>
+                        <Link href={'/'}>INÍCIO</Link>
                     </li>
                     <li>
-                        <Link href={'/'}>O CURSO</Link>
+                        <Link href={'/#nossos-cursos'}>CURSOS</Link>
                     </li>
                     <li>
-                        <Link href={'/'}>CONTATO</Link>
+                        <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">CONTATO</Link>
                     </li>
                 </ul>
 
-                <button className={styles.button}>
-                    <Link href={'/matriculas'}>MATRICULE-SE</Link>
-                </button>
+                <Link href={'/matriculas'} className={styles.button}>MATRICULE-SE</Link>
 
             </div>
         </nav>

@@ -4,11 +4,16 @@
   padding: 0;
   box-sizing: border-box;
   --light-gray: #757575;
-  --dark-gray: #152039; //2c2c2c
-  --blue: #f8c377;
+  --dark-gray: #2c2322;
+  --page-bg: #F5F0EF;
+  --brand-main: #9D6C65;
+  --accent: #F8C377;
+  --cta: #C21E7C;
+  --text-main: #2c2322;
+  --text-soft: #665653;
+  --blue: #F8C377;
   --buttons-text: #000;
   --buttons-text-hover: #fff;
-  //--blue: #479eff;
   --white: #fff;
   scroll-behavior: smooth;
   a {
@@ -23,8 +28,8 @@
 }
 
 body {
-  background: var(--dark-gray) !important;
-  color: var(--white)
+  background: var(--page-bg) !important;
+  color: var(--text-main)
 }
 
 .img {
