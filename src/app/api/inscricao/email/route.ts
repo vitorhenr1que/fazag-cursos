@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { api } from '../../../services/api';
 import juice from 'juice';
-import "react-quill/dist/quill.snow.css"; // Estilos do Quill
+import "react-quill-new/dist/quill.snow.css"; // Estilos do Quill
 
 
 export async function POST(request: Request) {

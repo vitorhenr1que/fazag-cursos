@@ -8,7 +8,7 @@ import { api } from '../services/api';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import {QuillEditor} from '../components/QuillEditor'
-import "react-quill/dist/quill.snow.css"; // Estilos do Quill
+import "react-quill-new/dist/quill.snow.css"; // Estilos do Quill
 
 
 export default function Matricular(){
