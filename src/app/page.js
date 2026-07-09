@@ -42,7 +42,7 @@ const newCourses = [
 const socialProof = [
   {
     label: 'Depoimento de aluno',
-    quote: 'A estrutura prática dos laboratórios e o acolhimento dos professores desde o primeiro dia me deram a certeza de que escolhi a faculdade certa para o meu futuro.',
+    quote: 'A estrutura prática dos laboratórios e os professores me deram a certeza de que escolhi a faculdade certa para o meu futuro.',
     author: 'Mariana Silva',
     info: 'Graduanda de Odontologia',
     stars: 5,
@@ -51,14 +51,14 @@ const socialProof = [
     label: 'Depoimento de egresso',
     quote: 'Concluí minha formação na FAZAG e hoje vejo como os diferenciais práticos me prepararam para o mercado de trabalho. Recomendo de olhos fechados!',
     author: 'Carlos Andrade',
-    info: 'Egresso de Direito',
+    info: 'Egresso de Enfermagem',
     stars: 5,
   },
   {
     label: 'Destaque de carreira',
     quote: 'Com suporte contínuo dos docentes e incentivo à pesquisa e estágio, conquistei minha primeira vaga profissional antes mesmo de me formar.',
     author: 'Juliana Costa',
-    info: 'Aprovada OAB / Estagiária',
+    info: 'Graduanda em Fisioterapia',
     stars: 5,
   },
 ]
