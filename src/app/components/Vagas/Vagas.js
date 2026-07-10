@@ -23,8 +23,8 @@ export function Vagas({ course }){
 
         async function GetNumberVecance(){
             if(responseApi == ""){ 
-                const test = await api.post('vagas/vagas') // Pegue a resposta e adicione na state para não chamar toda hora
-                console.log(test.data.getNumberVencace)
+                const test = await api.post('vagas/vagas', {course}) // Pegue a resposta e adicione na state para não chamar toda hora
+                console.log('TESTE API', test.data.getNumberVencace)
                 setResponseApi(test.data.getNumberVencace)
 
             }
